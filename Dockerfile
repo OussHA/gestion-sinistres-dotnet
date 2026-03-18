@@ -1,12 +1,14 @@
-# Build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /app
-COPY . .
-RUN dotnet publish -c Release -o out
+WORKDIR /src
+COPY ["ISH_APP.csproj", "./"]
+RUN dotnet restore "ISH_APP.csproj"
 
-# Runtime
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+COPY . .
+RUN dotnet publish "ISH_APP.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
-COPY --from=build /app/out .
+COPY --from=build /app/publish .
 EXPOSE 8080
-ENTRYPOINT ["dotnet", "Intranet_APP.dll"]
+ENV ASPNETCORE_URLS=http://+:8080
+ENTRYPOINT ["dotnet", "ISH_APP.dll"]
