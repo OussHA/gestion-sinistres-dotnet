@@ -1,0 +1,223 @@
+﻿@page
+@model ISH_APP.Pages.Statistiques.IndexModel
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    ViewData["Title"] = "Statistiques";
+    var types = Model.DossiersParType;
+    var mois = Model.DossiersParMois;
+    var prestataires = Model.DossiersParPrestataire;
+    var assurances = Model.DossiersParAssurance;
+    var DossiersParSalarie = Model.DossiersParUtilisateur;
+
+
+}
+
+<div class="container mx-auto mt-6 px-4">
+    <h2 class="text-3xl font-bold mb-6">Statistiques des Dossiers</h2>
+
+    <!-- Filtres en ligne -->
+    <form method="get" class="flex flex-wrap gap-4 mb-6 items-end">
+        <div class="w-full md:w-auto">
+            <label class="block font-medium">Année</label>
+            <select asp-for="AnneeSelectionnee" asp-items="Model.ListeAnnees" class="form-select w-full rounded border-gray-300">
+                <option value="">Toutes</option>
+            </select>
+        </div>
+        <div class="w-full md:w-auto">
+            <label class="block font-medium">Prestataire</label>
+            <select asp-for="PrestataireSelectionne" asp-items="Model.ListePrestataires" class="form-select w-full rounded border-gray-300">
+                <option value="">Tous</option>
+            </select>
+        </div>
+        <div class="w-full md:w-auto">
+            <button type="submit" class="bg-blue-600 text-white px-6 py-2 mt-1 rounded hover:bg-blue-700">
+                Filtrer
+            </button>
+        </div>
+    </form>
+
+    <!-- Graphiques -->
+    <style>
+        .charts-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+        }
+
+        .chart-box {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        .chart-box-pie {
+            width: 500px;
+        }
+
+        .chart-box-bar {
+            width: 1020px;
+        }
+
+        .chart-box h4 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+
+
+    <div class="charts-container">
+        <div class="chart-box chart-box-pie">
+            <h4>Par type de sinistre</h4>
+            <canvas id="typeChart" width="500" height="300"></canvas>
+        </div>
+        <div class="chart-box chart-box-pie">
+            <h4>Par ville</h4>
+            <canvas id="villeChart" width="500" height="300"></canvas>
+        </div>
+        <div class="chart-box chart-box-bar">
+            <h4>Par mois</h4>
+            <canvas id="moisChart" width="1000" height="300"></canvas>
+        </div>
+        <div class="chart-box chart-box-pie">
+            <h4>Par prestataire</h4>
+            <canvas id="prestataireChart" width="500" height="300"></canvas>
+        </div>
+        <div class="chart-box chart-box-pie">
+            <h4>Par assurance</h4>
+            <canvas id="assuranceChart" width="500" height="300"></canvas>
+        </div>
+        <div class="chart-box chart-box-bar">
+            <h4>Par salarié</h4>
+            <canvas id="salarieChart" width="1000" height="300"></canvas>
+        </div>
+
+        <div class="chart-box chart-box-bar">
+            <h4>Dossiers en retard par prestataire</h4>
+            <canvas id="retardPrestataireChart" width="1000" height="300"></canvas>
+        </div>
+    </div>
+
+
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const typeChart = new Chart(document.getElementById('typeChart'), {
+            type: 'pie',
+            data: {
+                labels: @Html.Raw(Json.Serialize(types.Keys)),
+                datasets: [{
+                    data: @Html.Raw(Json.Serialize(types.Values)),
+                    backgroundColor: ['#60a5fa', '#f87171', '#34d399', '#fbbf24', '#a78bfa'],
+                }]
+            },
+            options: {
+                responsive: false,
+                maintainAspectRatio: false
+            }
+        });
+
+           const villeChart = new Chart(document.getElementById('villeChart'), {
+            type: 'doughnut',
+            data: {
+                labels: @Html.Raw(Json.Serialize(Model.DossiersParVille.Keys)),
+                datasets: [{
+                    data: @Html.Raw(Json.Serialize(Model.DossiersParVille.Values)),
+                    backgroundColor: ['#fbbf24', '#34d399', '#a78bfa', '#f87171', '#60a5fa', '#a78bfa']
+                }]
+            },
+            options: {
+                responsive: false,
+                maintainAspectRatio: false
+            }
+        });
+
+        const moisChart = new Chart(document.getElementById('moisChart'), {
+            type: 'bar',
+            data: {
+                labels: @Html.Raw(Json.Serialize(mois.Keys)),
+                datasets: [{
+                    label: 'Dossiers',
+                    data: @Html.Raw(Json.Serialize(mois.Values)),
+                    backgroundColor: '#60a5fa'
+                }]
+            },
+            options: {
+                responsive: false,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+
+        const prestataireChart = new Chart(document.getElementById('prestataireChart'), {
+            type: 'pie',
+            data: {
+                labels: @Html.Raw(Json.Serialize(prestataires.Keys)),
+                datasets: [{
+                    data: @Html.Raw(Json.Serialize(prestataires.Values)),
+                    backgroundColor: ['#60a5fa', '#f87171', '#34d399', '#fbbf24', '#a78bfa'],
+                }]
+            },
+            options: {
+                responsive: false,
+                maintainAspectRatio: false
+            }
+        });
+
+         const assuranceChart = new Chart(document.getElementById('assuranceChart'), {
+            type: 'doughnut',
+            data: {
+                labels: @Html.Raw(Json.Serialize(assurances.Keys)),
+                datasets: [{
+                    data: @Html.Raw(Json.Serialize(assurances.Values)),
+                    backgroundColor: ['#60a5fa', '#f87171', '#34d399', '#fbbf24', '#a78bfa'],
+                }]
+            },
+            options: {
+                responsive: false,
+                maintainAspectRatio: false
+            }
+        });
+
+            // Salarié - Pie chart
+        const salarieChart = new Chart(document.getElementById('salarieChart'), {
+            type: 'bar',
+            data: {
+                labels: @Html.Raw(Json.Serialize(DossiersParSalarie.Keys)),
+                datasets: [{
+                    data: @Html.Raw(Json.Serialize(DossiersParSalarie.Values)),
+                    backgroundColor: ['#60a5fa', '#f87171', '#34d399', '#fbbf24', '#a78bfa', '#f87171']
+                }]
+            },
+            options: {
+                responsive: false,
+                maintainAspectRatio: false
+               
+            }
+        });
+
+        // Dossiers en retard par prestataire - Pie chart
+        const retardPrestataireChart = new Chart(document.getElementById('retardPrestataireChart'), {
+            type: 'bar',
+            data: {
+                labels: @Html.Raw(Json.Serialize(Model.DossiersEnRetardParPrestataire.Keys)),
+                datasets: [{
+                    data: @Html.Raw(Json.Serialize(Model.DossiersEnRetardParPrestataire.Values)),
+                    backgroundColor: ['#34d399', '#fbbf24', '#60a5fa', '#a78bfa', '#f87171', '#fbbf24']
+                }]
+            },
+            options: {
+                responsive: false,
+                maintainAspectRatio: false
+            }
+        });
+
+    </script>
+}

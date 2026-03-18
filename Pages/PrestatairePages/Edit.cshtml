@@ -1,0 +1,114 @@
+﻿@page
+@model ISH_APP.Pages.PrestatairePages.EditModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Modifier un prestataire";
+}
+
+<div class="container-fluid py-5">
+    <div class="bg-white border rounded shadow-sm p-4">
+        <h2 class="fw-bold mb-4">✏️ Modifier un prestataire</h2>
+
+        <form method="post">
+            <input type="hidden" asp-for="Prestataire.PrestataireID" />
+
+            <div class="border rounded p-3 mb-4">
+                <h5 class="mb-3 text-primary">Informations générales</h5>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label asp-for="Prestataire.Nom" class="form-label">Nom</label>
+                        <input asp-for="Prestataire.Nom" class="form-control" />
+                        <span asp-validation-for="Prestataire.Nom" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Prestataire.Services" class="form-label">Services</label>
+                        <input asp-for="Prestataire.Services" class="form-control" />
+                        <span asp-validation-for="Prestataire.Services" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border rounded p-3 mb-4">
+                <h5 class="mb-3 text-primary">Coordonnées</h5>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label asp-for="Prestataire.Contact" class="form-label">Contact</label>
+                        <input asp-for="Prestataire.Contact" class="form-control" />
+                        <span asp-validation-for="Prestataire.Contact" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label asp-for="Prestataire.Mail" class="form-label">Email</label>
+                        <input asp-for="Prestataire.Mail" class="form-control" />
+                        <span asp-validation-for="Prestataire.Mail" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label asp-for="Prestataire.SiteWeb" class="form-label">Site Web</label>
+                        <input asp-for="Prestataire.SiteWeb" class="form-control" />
+                        <span asp-validation-for="Prestataire.SiteWeb" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border rounded p-3 mb-4">
+                <h5 class="mb-3 text-primary">Adresse du siège</h5>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label asp-for="Prestataire.AdresseSiege" class="form-label">Adresse</label>
+                        <input asp-for="Prestataire.AdresseSiege" class="form-control" />
+                        <span asp-validation-for="Prestataire.AdresseSiege" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label asp-for="Prestataire.CodePostalSiege" class="form-label">Code Postal</label>
+                        <input asp-for="Prestataire.CodePostalSiege" class="form-control" />
+                        <span asp-validation-for="Prestataire.CodePostalSiege" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label asp-for="Prestataire.VilleSiege" class="form-label">Ville</label>
+                        <input asp-for="Prestataire.VilleSiege" class="form-control" />
+                        <span asp-validation-for="Prestataire.VilleSiege" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border rounded p-3 mb-4">
+                <h5 class="mb-3 text-primary">Informations supplémentaires</h5>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label asp-for="Prestataire.TarifNormal" class="form-label">Tarif normal</label>
+                        <input asp-for="Prestataire.TarifNormal" class="form-control" />
+                        <span asp-validation-for="Prestataire.TarifNormal" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label asp-for="Prestataire.TarifSoirWeekendFerie" class="form-label">Tarif soir/week-end/férié</label>
+                        <input asp-for="Prestataire.TarifSoirWeekendFerie" class="form-control" />
+                        <span asp-validation-for="Prestataire.TarifSoirWeekendFerie" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label asp-for="Prestataire.Note" class="form-label">Note</label>
+                        <input asp-for="Prestataire.Note" class="form-control" />
+                        <span asp-validation-for="Prestataire.Note" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Prestataire.Horaires" class="form-label">Horaires</label>
+                    <input asp-for="Prestataire.Horaires" class="form-control" />
+                    <span asp-validation-for="Prestataire.Horaires" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Prestataire.Agences" class="form-label">Agences</label>
+                    <input asp-for="Prestataire.Agences" class="form-control" />
+                    <span asp-validation-for="Prestataire.Agences" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <a asp-page="./Index" class="btn btn-outline-secondary">↩️ Annuler</a>
+                <button type="submit" class="btn btn-primary">💾 Enregistrer les modifications</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

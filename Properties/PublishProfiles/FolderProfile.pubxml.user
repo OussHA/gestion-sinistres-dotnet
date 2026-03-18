@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- https://go.microsoft.com/fwlink/?LinkID=208121. -->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\oussa\Desktop\ISH\ISH_Publish</_PublishTargetUrl>
+    <History>True|2025-06-18T21:23:37.7651999Z||;True|2025-06-05T00:18:20.0237625+02:00||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>05/01/2025 15:31:38</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>06/16/2025 23:35:36</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,197 @@
+﻿@page
+@* Déclare cette vue comme une Razor Page *@
+
+@model ISH_APP.Pages.ClientPages.IndexModel
+@* Associe la vue au PageModel IndexModel *@
+
+@{
+    // Utilisation du layout principal de l’application
+    Layout = "_Layout";
+
+    // Titre de la page (affiché dans l’onglet navigateur)
+    ViewData["Title"] = "Clients";
+}
+
+<!-- Conteneur pleine largeur avec padding vertical -->
+<div class="container-fluid py-5">
+
+    <!-- Affichage d’un message d’erreur stocké dans TempData (ex : suppression impossible) -->
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-warning">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    <!-- En-tête : titre + bouton d’ajout -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">👥 Liste des clients</h2>
+        <a asp-page="Create" class="btn btn-success">
+            ➕ Ajouter un client
+        </a>
+    </div>
+
+    <!-- Formulaire de recherche (GET pour garder l’URL propre et partageable) -->
+    <form method="get" class="mb-4 d-flex" role="search">
+
+        <!-- Champ de recherche lié au filtre courant -->
+        <input type="text"
+               name="SearchTerm"
+               value="@Model.CurrentFilter"
+               class="form-control me-2"
+               placeholder="Rechercher par nom ou téléphone..." />
+
+        <!-- Bouton de recherche -->
+        <button type="submit" class="btn btn-outline-primary me-2">
+            🔍 Rechercher
+        </button>
+
+        <!-- Bouton de réinitialisation des filtres -->
+        <a href="/ClientPages/Index" class="btn btn-outline-secondary">
+            ♻️ Réinitialiser
+        </a>
+    </form>
+
+    <!-- Tableau responsive avec ombre et bordures -->
+    <div class="table-responsive shadow-sm border rounded">
+        <table class="table table-hover table-bordered align-middle mb-0 rounded overflow-hidden shadow-sm">
+
+            <!-- En-tête du tableau -->
+            <thead class="table-dark">
+                <tr>
+                    <!-- Colonnes triables (Nom / Prénom) -->
+                    <th>
+                        <a asp-page="./Index"
+                           asp-route-sortOrder="@(Model.CurrentSort == "nom" ? "nom_desc" : "nom")"
+                           asp-route-searchTerm="@Model.CurrentFilter"
+                           class="text-white text-decoration-none">
+                            Nom
+                        </a>
+                    </th>
+
+                    <th>
+                        <a asp-page="./Index"
+                           asp-route-sortOrder="@(Model.CurrentSort == "prenom" ? "prenom_desc" : "prenom")"
+                           asp-route-searchTerm="@Model.CurrentFilter"
+                           class="text-white text-decoration-none">
+                            Prénom
+                        </a>
+                    </th>
+
+                    <!-- Colonnes non triables -->
+                    <th>Adresse</th>
+                    <th>Code postal</th>
+                    <th>Ville</th>
+                    <th>Téléphone</th>
+                    <th>Email</th>
+
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+
+            <!-- Corps du tableau -->
+            <tbody>
+                @* Vérifie qu’il existe des clients *@
+                @if (Model.Clients != null && Model.Clients.Any())
+                {
+                    foreach (var client in Model.Clients)
+                    {
+                        <!-- Ligne cliquable menant vers la page Détails -->
+                        <tr onclick="window.location.href='@Url.Page("Details", new { id = client.ClientID })'"
+                            style="cursor: pointer;">
+
+                            <td>@client.Nom</td>
+                            <td>@client.Prenom</td>
+                            <td>@client.Adresse</td>
+                            <td>@client.CodePostal</td>
+                            <td>@client.Ville</td>
+                            <td>@client.Telephone</td>
+                            <td>@client.Mail</td>
+
+                            <!-- Bouton de suppression avec confirmation -->
+                            <td class="text-center">
+                                <form method="post"
+                                      asp-page-handler="Delete"
+                                      asp-route-id="@client.ClientID"
+                                      class="d-inline"
+                                      onsubmit="return confirm('Voulez-vous vraiment supprimer ce client ?');">
+
+                                    <button type="submit"
+                                            class="btn btn-sm btn-outline-danger">
+                                        🗑️ Supprimer
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <!-- Message affiché si aucun client trouvé -->
+                    <tr>
+                        <td colspan="9" class="text-center text-muted">
+                            Aucun client trouvé.
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- Pagination -->
+        @if (Model.TotalPages > 1)
+        {
+            <nav class="mt-4">
+                <ul class="pagination justify-content-center">
+
+                    <!-- Bouton Précédent -->
+                    <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")">
+                        <a class="page-link"
+                           asp-page="./Index"
+                           asp-route-pageNumber="@(Model.PageNumber - 1)"
+                           asp-route-searchTerm="@Model.CurrentFilter"
+                           asp-route-sortOrder="@Model.CurrentSort">
+                            ← Précédent
+                        </a>
+                    </li>
+
+                    <!-- Numéros de pages -->
+                    @for (int i = 1; i <= Model.TotalPages; i++)
+                    {
+                        <li class="page-item @(Model.PageNumber == i ? "active" : "")">
+                            <a class="page-link"
+                               asp-page="./Index"
+                               asp-route-pageNumber="@i"
+                               asp-route-searchTerm="@Model.CurrentFilter"
+                               asp-route-sortOrder="@Model.CurrentSort">
+                                @i
+                            </a>
+                        </li>
+                    }
+
+                    <!-- Bouton Suivant -->
+                    <li class="page-item @(Model.PageNumber == Model.TotalPages ? "disabled" : "")">
+                        <a class="page-link"
+                           asp-page="./Index"
+                           asp-route-pageNumber="@(Model.PageNumber + 1)"
+                           asp-route-searchTerm="@Model.CurrentFilter"
+                           asp-route-sortOrder="@Model.CurrentSort">
+                            Suivant →
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        }
+    </div>
+</div>
+
+<!-- Section Scripts spécifique à cette page -->
+@section Scripts {
+    <script>
+        // Fonction JS de confirmation (non utilisée ici mais prête à l’emploi)
+        function confirmDelete(id) {
+            if (confirm("Voulez-vous vraiment supprimer ce client ?")) {
+                window.location.href = `/ClientPages/Delete?id=${id}`;
+            }
+        }
+    </script>
+}

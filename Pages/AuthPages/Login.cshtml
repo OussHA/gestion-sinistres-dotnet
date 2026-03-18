@@ -1,0 +1,80 @@
+﻿@page
+@* Indique qu’il s’agit d’une Razor Page *@
+
+@model ISH_APP.Pages.LoginModel
+@* Associe la vue au PageModel LoginModel *@
+
+@{
+    // Titre de la page (utilisé dans le layout principal)
+    ViewData["Title"] = "Connexion";
+}
+
+<!-- Conteneur principal centré horizontalement et verticalement -->
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+
+    <!-- Carte Bootstrap pour l’interface de connexion -->
+    <div class="card shadow-lg p-4" style="width: 400px;">
+
+        <!-- Titre du formulaire -->
+        <h2 class="text-center mb-4">Connexion</h2>
+
+        <!-- Formulaire envoyé en POST vers la même Razor Page -->
+        <form method="post">
+
+            <!-- Champ Email -->
+            <div class="mb-3">
+                <!-- Label du champ email -->
+                <label for="Email" class="form-label">Email</label>
+
+                <!--
+                    asp-for lie automatiquement l’input
+                    à la propriété Email du LoginModel
+                -->
+                <input asp-for="Email" class="form-control" id="Email" />
+
+                <!-- Message de validation côté serveur -->
+                <div class="form-text text-danger">
+                    @Html.ValidationMessageFor(m => m.Email)
+                </div>
+            </div>
+
+            <!-- Champ Mot de passe -->
+            <div class="mb-3">
+                <!-- Label du champ mot de passe -->
+                <label for="MotDePasse" class="form-label">Mot de passe</label>
+
+                <!--
+                    Champ mot de passe masqué
+                    lié à la propriété MotDePasse du PageModel
+                -->
+                <input asp-for="MotDePasse"
+                       type="password"
+                       class="form-control"
+                       id="MotDePasse" />
+
+                <!-- Message de validation côté serveur -->
+                <div class="form-text text-danger">
+                    @Html.ValidationMessageFor(m => m.MotDePasse)
+                </div>
+            </div>
+
+            <!-- Bouton de soumission -->
+            <div class="d-grid gap-2 mt-4">
+                <button type="submit" class="btn btn-primary">
+                    Se connecter
+                </button>
+            </div>
+        </form>
+
+        <!--
+            Message d’erreur global affiché si la connexion échoue
+            (ex: mauvais identifiants)
+        -->
+        @if (!string.IsNullOrEmpty(Model.Message))
+        {
+            <div class="alert alert-danger mt-3">
+                @Model.Message
+            </div>
+        }
+    </div>
+</div>

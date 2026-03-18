@@ -1,0 +1,69 @@
+﻿@page
+@model ISH_APP.Pages.AssurancePages.CreateModel
+
+        @{
+        ViewData["Title"] = "Create";
+        }
+        
+        <h1>Create</h1>
+        
+    <h4>Assurance</h4>
+    <hr />
+    <div class="row">
+    <div class="col-md-4">
+    <form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Assurance.Nom" class="control-label"></label>
+                <input asp-for="Assurance.Nom" class="form-control" />
+                <span asp-validation-for="Assurance.Nom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assurance.Services" class="control-label"></label>
+                <input asp-for="Assurance.Services" class="form-control" />
+                <span asp-validation-for="Assurance.Services" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assurance.Contact" class="control-label"></label>
+                <input asp-for="Assurance.Contact" class="form-control" />
+                <span asp-validation-for="Assurance.Contact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assurance.Mail" class="control-label"></label>
+                <input asp-for="Assurance.Mail" class="form-control" />
+                <span asp-validation-for="Assurance.Mail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assurance.Adresse" class="control-label"></label>
+                <input asp-for="Assurance.Adresse" class="form-control" />
+                <span asp-validation-for="Assurance.Adresse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assurance.CodePostal" class="control-label"></label>
+                <input asp-for="Assurance.CodePostal" class="form-control" />
+                <span asp-validation-for="Assurance.CodePostal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assurance.Ville" class="control-label"></label>
+                <input asp-for="Assurance.Ville" class="form-control" />
+                <span asp-validation-for="Assurance.Ville" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assurance.SiteWeb" class="control-label"></label>
+                <input asp-for="Assurance.SiteWeb" class="form-control" />
+                <span asp-validation-for="Assurance.SiteWeb" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

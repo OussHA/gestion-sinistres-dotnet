@@ -1,0 +1,40 @@
+﻿@page
+@model ISH_APP.Pages.testModel
+@{
+}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Test Flex Graphes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 20px;
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flex flex-wrap gap-6 justify-center mt-8">
+        <div class="flex-shrink-0 bg-white rounded shadow p-4" style="width: 400px;">
+            <h4 class="text-lg font-semibold mb-2 text-center">Par type de sinistre</h4>
+            <canvas id="typeChart" width="400" height="300" style="background:#fafafa;"></canvas>
+        </div>
+
+        <div class="flex-shrink-0 bg-white rounded shadow p-4" style="width: 400px;">
+            <h4 class="text-lg font-semibold mb-2 text-center">Par ville</h4>
+            <canvas id="villeChart" width="400" height="300" style="background:#fafafa;"></canvas>
+        </div>
+
+        <div class="flex-shrink-0 bg-white rounded shadow p-4" style="width: 400px;">
+            <h4 class="text-lg font-semibold mb-2 text-center">Par mois</h4>
+            <canvas id="moisChart" width="400" height="300" style="background:#fafafa;"></canvas>
+        </div>
+    </div>
+
+</body>
+</html>
+

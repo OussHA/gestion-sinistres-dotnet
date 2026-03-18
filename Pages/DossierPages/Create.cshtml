@@ -1,0 +1,126 @@
+﻿@page
+@model ISH_APP.Pages.DossierPages.CreateModel
+@{
+    ViewData["Title"] = "Créer un Dossier";
+}
+
+<div class="container mt-5 mb-5">
+    <h2 class="text-center mb-4">Créer un Dossier</h2>
+    <form method="post" enctype="multipart/form-data">
+        <div class="card shadow rounded p-4 mb-4 border-0">
+            <h4 class="mb-3">Informations générales</h4>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="Dossier.DateDeclaration" class="form-label">Date de déclaration</label>
+                    <input asp-for="Dossier.DateDeclaration" class="form-control" type="date" value="@DateTime.Today.ToString("yyyy-MM-dd")" readonly />
+                    <span asp-validation-for="Dossier.DateDeclaration" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Dossier.TypeSinistre" class="form-label">Type de sinistre</label>
+                    <input asp-for="Dossier.TypeSinistre" class="form-control" />
+                    <span asp-validation-for="Dossier.TypeSinistre" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Dossier.Priorite" class="form-label">Priorité</label>
+                    <select asp-for="Dossier.Priorite" class="form-select">
+                        <option value="">Sélectionner</option>
+                        <option value="Haute">Haute</option>
+                        <option value="Moyenne">Moyenne</option>
+                        <option value="Basse">Basse</option>
+                    </select>
+                    <span asp-validation-for="Dossier.Priorite" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Dossier.Etat" class="form-label">État</label>
+                    <input asp-for="Dossier.Etat" class="form-control" value="Recherche Prestataire" readonly />
+                    <span asp-validation-for="Dossier.Etat" class="text-danger"></span>
+                </div>
+                <div class="col-12">
+                    <label asp-for="Dossier.Description" class="form-label">Description</label>
+                    <textarea asp-for="Dossier.Description" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="Dossier.Description" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-4">
+                <label asp-for="Dossier.ClientID" class="form-label">Client</label>
+                <select asp-for="Dossier.ClientID" class="form-select" asp-items="ViewBag.ClientID">
+                    <option value="">Sélectionner</option>
+                </select>
+                <span asp-validation-for="Dossier.ClientID" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="Dossier.AssuranceID" class="form-label">Assurance</label>
+                <select asp-for="Dossier.AssuranceID" class="form-select" asp-items="ViewBag.AssuranceID">
+                    <option value="">Sélectionner</option>
+                </select>
+                <span asp-validation-for="Dossier.AssuranceID" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="Dossier.PrestataireID" class="form-label">Prestataire</label>
+                <select asp-for="Dossier.PrestataireID" class="form-select" asp-items="ViewBag.PrestataireID">
+                    <option value="">Sélectionner</option>
+                </select>
+                <span asp-validation-for="Dossier.PrestataireID" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="card shadow rounded p-4 mb-4 border-0">
+            <h4 class="mb-3">Travaux à faire</h4>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="Dossier.DateDebutTravaux" class="form-label">Date début</label>
+                    <input asp-for="Dossier.DateDebutTravaux" type="date" class="form-control" />
+                    <span asp-validation-for="Dossier.DateDebutTravaux" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Dossier.DateFinTravaux" class="form-label">Date fin</label>
+                    <input asp-for="Dossier.DateFinTravaux" type="date" class="form-control" />
+                    <span asp-validation-for="Dossier.DateFinTravaux" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow rounded p-4 mb-4 border-0">
+            <h4 class="mb-3">Pièces jointes</h4>
+            <div class="mb-3">
+                <label for="UploadedFiles" class="form-label">Pièces jointes</label>
+                <input type="file" class="form-control" id="UploadedFiles" name="UploadedFiles" multiple />
+            </div>
+        </div>
+
+        <div class="card shadow rounded p-4 mb-4 border-0">
+            <h4 class="mb-3">Commentaires</h4>
+            <div class="row g-3">
+                <div class="col-12">
+                    <label asp-for="Dossier.CommentaireISH" class="form-label">Commentaire ISH</label>
+                    <textarea asp-for="Dossier.CommentaireISH" class="form-control" rows="2"></textarea>
+                </div>
+                <div class="col-12">
+                    <label asp-for="Dossier.CommentaireAssurance" class="form-label">Commentaire Assurance</label>
+                    <textarea asp-for="Dossier.CommentaireAssurance" class="form-control" rows="2"></textarea>
+                </div>
+                <div class="col-12">
+                    <label asp-for="Dossier.CommentairePrestataire" class="form-label">Commentaire Prestataire</label>
+                    <textarea asp-for="Dossier.CommentairePrestataire" class="form-control" rows="2"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-end">
+            <button type="submit" class="btn btn-primary px-4">Créer</button>
+            <a asp-page="./Index" class="btn btn-secondary ms-2">Annuler</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

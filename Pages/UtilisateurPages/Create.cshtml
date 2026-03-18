@@ -1,0 +1,61 @@
+﻿@page
+@model ISH_APP.Pages.UtilisateurPages.CreateModel
+
+        @{
+        ViewData["Title"] = "Create";
+        }
+        
+        <h1>Create</h1>
+        
+    <h4>Utilisateur</h4>
+    <hr />
+    <div class="row">
+    <div class="col-md-4">
+    <form method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Utilisateur.Nom" class="control-label"></label>
+                <input asp-for="Utilisateur.Nom" class="form-control" />
+                <span asp-validation-for="Utilisateur.Nom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Utilisateur.Prenom" class="control-label"></label>
+                <input asp-for="Utilisateur.Prenom" class="form-control" />
+                <span asp-validation-for="Utilisateur.Prenom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Utilisateur.Email" class="control-label"></label>
+                <input asp-for="Utilisateur.Email" class="form-control" />
+                <span asp-validation-for="Utilisateur.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Utilisateur.MotDePasseHash" class="control-label"></label>
+                <input asp-for="Utilisateur.MotDePasseHash" class="form-control" />
+                <span asp-validation-for="Utilisateur.MotDePasseHash" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Utilisateur.Role" class="control-label"></label>
+                <input asp-for="Utilisateur.Role" class="form-control" />
+                <span asp-validation-for="Utilisateur.Role" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="LogoFile" class="control-label">Logo</label>
+                <input asp-for="LogoFile" type="file" class="form-control" />
+                <span asp-validation-for="LogoFile" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

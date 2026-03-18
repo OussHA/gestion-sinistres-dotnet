@@ -1,0 +1,338 @@
+﻿@page
+@model ISH_APP.Pages.DossierPages.DetailsModel
+@{
+    ViewData["Title"] = "Détails du Dossier";
+    string priorityClass = Model.Dossier.Priorite switch
+    {
+        "Haute" => "badge bg-danger",
+        "Moyenne" => "badge bg-warning text-dark",
+        "Basse" => "badge bg-success",
+        _ => "badge bg-secondary"
+    };
+}
+
+<div class="container py-5">
+    <h2 class="text-center mb-4">Détails du Dossier</h2>
+
+    <div class="card shadow-lg border-0">
+        <div class="card-body p-4">
+
+            <!-- Informations générales -->
+            <h4 class="mb-3 border-bottom pb-2">🧾 Informations générales</h4>
+            <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                    <div class="p-3 border rounded shadow-sm">
+                        <strong>Date de déclaration :</strong><br />
+                        @Model.Dossier.DateDeclaration?.ToString("dd/MM/yyyy")
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 border rounded shadow-sm">
+                        <strong>Type de sinistre :</strong><br />
+                        @Model.Dossier.TypeSinistre
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 border rounded shadow-sm">
+                        <strong>Priorité :</strong>
+                        <span class="@priorityClass">@Model.Dossier.Priorite</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 border rounded shadow-sm">
+                        <strong>État :</strong>
+                        @{
+                            // Récupérer le prestataire assigné
+                            var utilisateurPrestataire = Model.Dossier.DossierUtilisateurs?
+                            .FirstOrDefault(du => du.Utilisateur != null && du.Utilisateur.Role == "Prestataire")?.Utilisateur;
+
+                            // Déterminer dynamiquement l'état
+                            string etatAffiche = (utilisateurPrestataire != null) ? "En cours" : Model.Dossier.Etat;
+                        }
+
+                        <span class="badge bg-info text-dark">@etatAffiche</span>
+
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="p-3 border rounded shadow-sm">
+                        <strong>Description :</strong><br />
+                        <p class="text-muted mb-0">@Model.Dossier.Description</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parties impliquées -->
+            <h4 class="mb-3 border-bottom pb-2">👥 Parties impliquées</h4>
+            <div class="row g-3 mb-4">
+                <div class="col-md-4">
+                    <div class="p-3 border rounded shadow-sm">
+                        <strong>👤 Client :</strong><br />
+                        <a asp-page="/ClientPages/Details" asp-route-id="@Model.Dossier.ClientID">
+                            @Model.Dossier.Client?.Nom @Model.Dossier.Client?.Prenom
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 border rounded shadow-sm">
+                        <strong>🏢 Assurance :</strong><br />
+                        @if (Model.UtilisateurAssurance != null)
+                        {
+                            <span>@Model.UtilisateurAssurance.Nom @Model.UtilisateurAssurance.Prenom</span>
+                        }
+                        else
+                        {
+                            <span class="text-muted fst-italic">Non assigné</span>
+                        }
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 border rounded shadow-sm">
+                        <strong>🛠️ Prestataire :</strong><br />
+                        @if (Model.UtilisateurPrestataire != null)
+                        {
+                            <span>@Model.UtilisateurPrestataire.Nom @Model.UtilisateurPrestataire.Prenom</span>
+                        }
+                        else
+                        {
+                            <span class="text-muted fst-italic">Non assigné</span>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            @* 
+<!-- Co-utilisateurs -->
+<div class="mb-4">
+    <h5 class="fw-bold">👥 Co-utilisateurs</h5>
+    <div class="row mb-3">
+        @if (Model.Dossier.DossierUtilisateurs != null && Model.Dossier.DossierUtilisateurs.Any())
+        {
+            <ul class="list-group list-group-flush">
+                @foreach (var du in Model.Dossier.DossierUtilisateurs)
+                {
+                    <li class="list-group-item">
+                        <i class="bi bi-person-circle me-2"></i>
+                        @du.Utilisateur.Nom @du.Utilisateur.Prenom
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p class="text-muted fst-italic">Aucun co-utilisateur assigné.</p>
+        }
+    </div>
+</div>
+*@
+
+
+            <!-- Travaux -->
+            <h4 class="mb-3 border-bottom pb-2">🔧 Travaux</h4>
+            <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                    <div class="p-3 border rounded shadow-sm">
+                        <strong>📅 Début :</strong><br />
+                        @Model.Dossier.DateDebutTravaux?.ToString("dd/MM/yyyy")
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 border rounded shadow-sm">
+                        <strong>📅 Fin :</strong><br />
+                        @Model.Dossier.DateFinTravaux?.ToString("dd/MM/yyyy")
+                    </div>
+                </div>
+            </div>
+
+            <!-- Commentaires -->
+            <h4 class="mb-3 border-bottom pb-2">💬 Commentaires</h4>
+            <div class="mb-3 p-3 border rounded shadow-sm">
+                <strong>ISH :</strong>
+                <p class="text-muted mb-0">@Model.Dossier.CommentaireISH</p>
+            </div>
+            <div class="mb-3 p-3 border rounded shadow-sm">
+                <strong>Assurance :</strong>
+                <p class="text-muted mb-0">@Model.Dossier.CommentaireAssurance</p>
+            </div>
+            <div class="mb-3 p-3 border rounded shadow-sm">
+                <strong>Prestataire :</strong>
+                <p class="text-muted mb-0">@Model.Dossier.CommentairePrestataire</p>
+            </div>
+
+
+            <h4 class="mb-3 border-bottom pb-2">📎 Pièces jointes</h4>
+
+            @if (Model.PiecesJointes != null && Model.PiecesJointes.Any())
+            {
+                <div class="row">
+                    @foreach (var piece in Model.PiecesJointes)
+                    {
+                        var base64 = $"data:{piece.TypeFichier};base64,{Convert.ToBase64String(piece.Contenu)}";
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 shadow-sm">
+
+                                @if (piece.TypeFichier.StartsWith("image/"))
+                                {
+                                    <!-- Image cliquable -->
+                                    <img src="@base64"
+                                         class="card-img-top img-fluid"
+                                         style="max-height: 250px; object-fit: contain; cursor: zoom-in;"
+                                         data-bs-toggle="modal"
+                                         data-bs-target="#imageModal"
+                                         data-image="@base64"
+                                         data-filename="@piece.NomFichier"
+                                         data-pieceid="@piece.PieceJointeID" />
+                                }
+                                else
+                                {
+                                    <!-- Icône fichier -->
+                                    <div class="d-flex justify-content-center align-items-center bg-light"
+                                         style="height: 250px; cursor: default;">
+                                        <i class="bi bi-file-earmark-text" style="font-size:5rem; color:gray;"></i>
+                                    </div>
+                                }
+
+                                <div class="card-body text-center">
+                                    <h6 class="card-title text-truncate" title="@piece.NomFichier">
+                                        @piece.NomFichier
+                                    </h6>
+                                    <p class="card-text">
+                                        <small class="text-muted">
+                                            Ajoutée le @(piece.DateAjout?.ToShortDateString() ?? "Date inconnue")
+                                        </small>
+                                    </p>
+
+                                    <div class="d-flex justify-content-between">
+                                        <a href="@base64" download="@piece.NomFichier" class="btn btn-sm btn-primary">
+                                            ⬇ Télécharger
+                                        </a>
+
+                                        <form method="post"
+                                              asp-page="/DossierPages/Details"
+                                              asp-page-handler="DeletePieceJointe"
+                                              class="d-inline">
+                                            <input type="hidden" name="pieceId" value="@piece.PieceJointeID" />
+                                            <input type="hidden" name="id" value="@Model.Dossier.DossierID" />
+                                            <button type="submit" class="btn btn-sm btn-danger">🗑 Supprimer</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            }
+            else
+            {
+                <p class="text-muted fst-italic">Aucune pièce jointe disponible.</p>
+            }
+
+            <!-- Modal pour afficher les images -->
+            <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageModalLabel">Aperçu de l'image</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img id="modalImage" src="" alt="Image pièce jointe" class="img-fluid rounded shadow" />
+                        </div>
+                        <div class="modal-footer">
+                            <a id="downloadButton" href="#" download class="btn btn-primary">⬇ Télécharger</a>
+
+                            <form id="deleteForm" method="post"
+                                  asp-page="/DossierPages/Details"
+                                  asp-page-handler="DeletePieceJointe"
+                                  class="d-inline">
+                                <input type="hidden" id="pieceIdToDelete" name="pieceId" />
+                                <input type="hidden" name="id" value="@Model.Dossier.DossierID" /> <!-- ajout -->
+                                <button type="submit" class="btn btn-danger">🗑 Supprimer</button>
+                            </form>
+
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @section Scripts {
+                <script>
+                    const imageModal = document.getElementById('imageModal');
+                    imageModal.addEventListener('show.bs.modal', event => {
+                        const img = event.relatedTarget;
+                        const src = img.getAttribute('data-image');
+                        const filename = img.getAttribute('data-filename');
+                        const pieceId = img.getAttribute('data-pieceid');
+
+                        const modalImg = imageModal.querySelector('#modalImage');
+                        const downloadLink = imageModal.querySelector('#downloadButton');
+                        const deleteInput = imageModal.querySelector('#pieceIdToDelete');
+
+                        modalImg.src = src;
+                        downloadLink.href = src;
+                        downloadLink.download = filename;
+                        deleteInput.value = pieceId; // On met l'ID dans le champ hidden
+                    });
+
+                </script>
+            }
+
+            <!-- Historique -->
+            <h4 class="mt-4 d-flex justify-content-between align-items-center">
+                📜 Historique des modifications
+                <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#historiqueCollapse" aria-expanded="false" aria-controls="historiqueCollapse" id="toggleHistoriqueBtn">
+                    <i class="bi bi-chevron-down" id="toggleIcon"></i>
+                </button>
+            </h4>
+
+            <div class="collapse show" id="historiqueCollapse">
+                @if (Model.Historiques != null && Model.Historiques.Any())
+                {
+                    <table class="table table-bordered mt-2">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Champ</th>
+                                <th>Ancienne valeur</th>
+                                <th>Nouvelle valeur</th>
+                                <th>Modifié par</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var h in Model.Historiques)
+                            {
+                                <tr>
+                                    <td>@h.ChampModifie</td>
+                                    <td>@h.AncienneValeur</td>
+                                    <td>@h.NouvelleValeur</td>
+                                    <td>@h.ModifiePar</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p class="text-muted">Aucune modification enregistrée.</p>
+                }
+            </div>
+
+            <!-- Boutons de navigation -->
+            <div class="d-flex justify-content-between mt-4">
+                <a class="btn btn-outline-primary" asp-page="./Edit" asp-route-id="@Model.Dossier.DossierID">
+                    ✏️ Modifier
+                </a>
+                <a asp-page="/DossierPages/Facturation" asp-route-DossierID="@Model.Dossier.DossierID" class="btn btn-primary">
+                    🧾 Créer un devis/facture
+                </a>
+
+                <a class="btn btn-secondary" asp-page="./Index">
+                    ← Retour à la liste
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+

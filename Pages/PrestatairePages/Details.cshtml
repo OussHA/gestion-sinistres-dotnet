@@ -1,0 +1,193 @@
+﻿@page
+@model ISH_APP.Pages.PrestatairePages.DetailsModel
+@{
+    ViewData["Title"] = "Détails du prestataire";
+    Layout = "_Layout";
+}
+
+<div class="container py-5">
+
+    <div class="mb-4">
+        <h3 class="fw-semibold border-bottom pb-2 mb-3">🔍 Détails du prestataire</h3>
+    </div>
+
+    <div class="bg-white border rounded shadow-sm p-4">
+
+        <h5 class="text-muted mb-4">📌 Informations générales</h5>
+
+        <!-- Mini-section : Identité -->
+        <div class="border rounded p-3 mb-3">
+            <h6 class="text-muted mb-2">Identité</h6>
+            <div class="row">
+                <div class="col-md-6">
+                    <small class="text-uppercase text-muted">Nom</small>
+                    <div>@Model.Prestataire.Nom</div>
+                </div>
+                <div class="col-md-6">
+                    <small class="text-uppercase text-muted">Services</small>
+                    <div>@Model.Prestataire.Services</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mini-section : Tarifs -->
+        <div class="border rounded p-3 mb-3">
+            <h6 class="text-muted mb-2">Tarifs</h6>
+            <div class="row">
+                <div class="col-md-6">
+                    <small class="text-uppercase text-muted">Tarif normal</small>
+                    <div>@Model.Prestataire.TarifNormal €</div>
+                </div>
+                <div class="col-md-6">
+                    <small class="text-uppercase text-muted">Soir/Week-end/Férié</small>
+                    <div>@Model.Prestataire.TarifSoirWeekendFerie €</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mini-section : Siège -->
+        <div class="border rounded p-3 mb-3">
+            <h6 class="text-muted mb-2">Siège social</h6>
+            <div class="row">
+                <div class="col-md-4">
+                    <small class="text-uppercase text-muted">Adresse</small>
+                    <div>@Model.Prestataire.AdresseSiege</div>
+                </div>
+                <div class="col-md-4">
+                    <small class="text-uppercase text-muted">Code postal</small>
+                    <div>@Model.Prestataire.CodePostalSiege</div>
+                </div>
+                <div class="col-md-4">
+                    <small class="text-uppercase text-muted">Ville</small>
+                    <div>@Model.Prestataire.VilleSiege</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mini-section : Contact -->
+        <div class="border rounded p-3 mb-3">
+            <h6 class="text-muted mb-2">Contact</h6>
+            <div class="row">
+                <div class="col-md-6">
+                    <small class="text-uppercase text-muted">Téléphone</small>
+                    <div>@Model.Prestataire.Contact</div>
+                </div>
+                <div class="col-md-6">
+                    <small class="text-uppercase text-muted">Email</small>
+                    <div><a href="mailto:@Model.Prestataire.Mail">@Model.Prestataire.Mail</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mini-section : Horaires & site web -->
+        <div class="border rounded p-3 mb-3">
+            <h6 class="text-muted mb-2">Disponibilité</h6>
+            <div class="row">
+                <div class="col-md-6">
+                    <small class="text-uppercase text-muted">Horaires</small>
+                    <div>@Model.Prestataire.Horaires</div>
+                </div>
+                <div class="col-md-6">
+                    <small class="text-uppercase text-muted">Site web</small>
+                    <div>
+                        @if (!string.IsNullOrEmpty(Model.Prestataire.SiteWeb))
+                        {
+                            <a href="@Model.Prestataire.SiteWeb" target="_blank">@Model.Prestataire.SiteWeb</a>
+                        }
+                        else
+                        {
+                            <span class="text-muted">Non renseigné</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mini-section : Agences -->
+        <div class="border rounded p-3 mb-3">
+            <h6 class="text-muted mb-2">Agences secondaires</h6>
+            <div>
+                @if (!string.IsNullOrWhiteSpace(Model.Prestataire.Agences))
+                {
+                    @Model.Prestataire.Agences
+                }
+                else
+                {
+                    <span class="text-muted">Aucune agence renseignée</span>
+                }
+            </div>
+        </div>
+
+        <!-- Mini-section : Note -->
+        <div class="border rounded p-3">
+            <h6 class="text-muted mb-2">Évaluation</h6>
+            <div>
+                @if (Model.Prestataire.Note.HasValue)
+                {
+                    <span class="badge bg-success fs-6">@Model.Prestataire.Note/5</span>
+                }
+                else
+                {
+                    <span class="text-muted">Non noté</span>
+                }
+            </div>
+        </div>
+
+        @if (Model.DossiersAssocies.Any())
+        {
+            <div class="mt-5">
+                <h4 class="border-bottom pb-2 mb-3">📁 Dossiers associés</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-striped align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Réf.</th>
+                                <th>Client</th>
+                                <th>Assurance</th>
+                                <th>Type</th>
+                                <th>État</th>
+                                <th>Priorité</th>
+                                <th>Date déclaration</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var dossier in Model.DossiersAssocies)
+                            {
+                                <tr>
+                                    <td>@dossier.DossierID</td>
+                                    <td>@dossier.Client?.Nom @dossier.Client?.Prenom</td>
+                                    <td>@dossier.Assurance?.Nom</td>
+                                    <td>@dossier.TypeSinistre</td>
+                                    <td>@dossier.Etat</td>
+                                    <td>@dossier.Priorite</td>
+                                    <td>@dossier.DateDeclaration?.ToString("dd/MM/yyyy")</td>
+                                    <td>
+                                        <a asp-page="/DossierPages/Details" asp-route-id="@dossier.DossierID" class="btn btn-sm btn-outline-primary">
+                                            Voir
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="mt-5">
+                <h4 class="border-bottom pb-2 mb-3">📁 Dossiers associés</h4>
+                <p class="text-muted">Aucun dossier n’est encore lié à ce prestataire.</p>
+            </div>
+        }
+
+    </div>
+
+    <div class="text-end mt-4">
+        <a asp-page="./Edit" asp-route-id="@Model.Prestataire.PrestataireID" class="btn btn-primary">✏️ Modifier</a>
+        <a asp-page="./Index" class="btn btn-secondary ms-2">↩️ Retour</a>
+    </div>
+
+</div>

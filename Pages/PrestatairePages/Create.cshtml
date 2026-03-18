@@ -1,0 +1,137 @@
+﻿@page
+@model ISH_APP.Pages.PrestatairePages.CreateModel
+@{
+    ViewData["Title"] = "Ajouter un prestataire";
+    Layout = "_Layout";
+}
+
+<div class="container py-5">
+
+    <div class="mb-4">
+        <h2 class="fw-semibold border-bottom pb-2">➕ Ajouter un prestataire</h2>
+    </div>
+
+    <form method="post" class="bg-white border rounded shadow-sm p-4">
+
+        <!-- Section principale -->
+        <h5 class="text-muted mb-4">📌 Informations générales</h5>
+
+        <!-- Identité -->
+        <div class="border rounded p-3 mb-3">
+            <h6 class="text-muted mb-3">Identité</h6>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="Prestataire.Nom" class="form-label text-muted">Nom</label>
+                    <input asp-for="Prestataire.Nom" class="form-control" />
+                    <span asp-validation-for="Prestataire.Nom" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Prestataire.Services" class="form-label text-muted">Services</label>
+                    <input asp-for="Prestataire.Services" class="form-control" />
+                    <span asp-validation-for="Prestataire.Services" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarifs -->
+        <div class="border rounded p-3 mb-3">
+            <h6 class="text-muted mb-3">Tarifs</h6>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="Prestataire.TarifNormal" class="form-label text-muted">Tarif normal</label>
+                    <input asp-for="Prestataire.TarifNormal" class="form-control" />
+                    <span asp-validation-for="Prestataire.TarifNormal" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Prestataire.TarifSoirWeekendFerie" class="form-label text-muted">Tarif soir/week-end/jour férié</label>
+                    <input asp-for="Prestataire.TarifSoirWeekendFerie" class="form-control" />
+                    <span asp-validation-for="Prestataire.TarifSoirWeekendFerie" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Siège social -->
+        <div class="border rounded p-3 mb-3">
+            <h6 class="text-muted mb-3">Siège social</h6>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label asp-for="Prestataire.AdresseSiege" class="form-label text-muted">Adresse</label>
+                    <input asp-for="Prestataire.AdresseSiege" class="form-control" />
+                    <span asp-validation-for="Prestataire.AdresseSiege" class="text-danger"></span>
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="Prestataire.CodePostalSiege" class="form-label text-muted">Code postal</label>
+                    <input asp-for="Prestataire.CodePostalSiege" class="form-control" />
+                    <span asp-validation-for="Prestataire.CodePostalSiege" class="text-danger"></span>
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="Prestataire.VilleSiege" class="form-label text-muted">Ville</label>
+                    <input asp-for="Prestataire.VilleSiege" class="form-control" />
+                    <span asp-validation-for="Prestataire.VilleSiege" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="border rounded p-3 mb-3">
+            <h6 class="text-muted mb-3">Contact</h6>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="Prestataire.Contact" class="form-label text-muted">Téléphone</label>
+                    <input asp-for="Prestataire.Contact" class="form-control" />
+                    <span asp-validation-for="Prestataire.Contact" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Prestataire.Mail" class="form-label text-muted">Email</label>
+                    <input asp-for="Prestataire.Mail" class="form-control" />
+                    <span asp-validation-for="Prestataire.Mail" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Horaires / Site -->
+        <div class="border rounded p-3 mb-3">
+            <h6 class="text-muted mb-3">Disponibilité</h6>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="Prestataire.Horaires" class="form-label text-muted">Horaires</label>
+                    <input asp-for="Prestataire.Horaires" class="form-control" />
+                    <span asp-validation-for="Prestataire.Horaires" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Prestataire.SiteWeb" class="form-label text-muted">Site web</label>
+                    <input asp-for="Prestataire.SiteWeb" class="form-control" />
+                    <span asp-validation-for="Prestataire.SiteWeb" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agences -->
+        <div class="border rounded p-3 mb-3">
+            <h6 class="text-muted mb-3">Agences secondaires</h6>
+            <div>
+                <label asp-for="Prestataire.Agences" class="form-label text-muted">Liste des agences</label>
+                <textarea asp-for="Prestataire.Agences" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Prestataire.Agences" class="text-danger"></span>
+            </div>
+        </div>
+
+        <!-- Note -->
+        <div class="border rounded p-3 mb-4">
+            <h6 class="text-muted mb-3">Évaluation</h6>
+            <label asp-for="Prestataire.Note" class="form-label text-muted">Note (sur 5)</label>
+            <input asp-for="Prestataire.Note" class="form-control" type="number" step="0.1" min="0" max="5" />
+            <span asp-validation-for="Prestataire.Note" class="text-danger"></span>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <a asp-page="./Index" class="btn btn-secondary">↩️ Retour</a>
+            <button type="submit" class="btn btn-success">💾 Enregistrer</button>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

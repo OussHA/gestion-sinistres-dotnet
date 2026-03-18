@@ -1,0 +1,162 @@
+﻿@page
+@model ISH_APP.Pages.DossierPages.FacturationModel
+@{
+    ViewData["Title"] = "Facturation / Devis";
+}
+
+<div class="container my-5 bg-light p-4 rounded shadow-sm">
+    <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
+        <h2 class="fw-bold text-primary">@Model.Input?.TypeDocument ?? "Facturation / Devis"</h2>
+        <small class="text-muted">Référence : @Model.Input?.Reference ?? "—"</small>
+    </div>
+
+    <form method="post" class="needs-validation" novalidate>
+        <div class="row g-3 mb-4">
+            <div class="col-md-3">
+                <label asp-for="Input.TypeDocument" class="form-label fw-semibold">Type</label>
+                <select asp-for="Input.TypeDocument" class="form-select border-primary" required>
+                    <option value="Devis">Devis</option>
+                    <option value="Facture">Facture</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="Input.Reference" class="form-label fw-semibold">Référence</label>
+                <input asp-for="Input.Reference" class="form-control border-primary" required />
+                <div class="invalid-feedback">Veuillez saisir une référence.</div>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="Input.Date" class="form-label fw-semibold">Date</label>
+                <input asp-for="Input.Date" type="date" class="form-control border-primary" required />
+                <div class="invalid-feedback">Veuillez saisir la date.</div>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="Input.TauxTVA" class="form-label fw-semibold">TVA (%)</label>
+                <input asp-for="Input.TauxTVA" id="tauxTVA" type="number" step="10" class="form-control" value="@Model.Input.TauxTVA" required />
+                <div class="invalid-feedback">Veuillez saisir le taux de TVA.</div>
+            </div>
+        </div>
+
+        <hr class="my-4" />
+
+        <h4 class="mb-3 text-secondary">Lignes de facturation</h4>
+
+        <table class="table table-striped table-hover table-bordered align-middle" id="lignesTable">
+            <thead class="table-dark text-white">
+                <tr>
+                    <th>Description</th>
+                    <th class="text-end">Quantité</th>
+                    <th class="text-end">Prix Unitaire (€)</th>
+                    <th class="text-end">Total (€)</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Input.Lignes.Count; i++)
+                {
+                    var ligne = Model.Input.Lignes[i];
+                    <tr>
+                        <td><input name="Input.Lignes[@i].Description" value="@ligne.Description" class="form-control" /></td>
+                        <td><input name="Input.Lignes[@i].Quantite" type="number" min="1" value="@ligne.Quantite" class="form-control text-end ligne-quantite" /></td>
+                        <td><input name="Input.Lignes[@i].PrixUnitaire" type="text" step="0.01" value="@ligne.PrixUnitaire" class="form-control text-end ligne-prix" /></td>
+                        <td class="ligne-total text-end fw-bold">0.00</td>
+                        <td class="text-center"><button type="button" onclick="removeLine(this)" class="btn btn-sm btn-outline-danger">🗑</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <button type="button" onclick="addLine()" class="btn btn-outline-primary btn-sm mb-3">+ Ajouter une ligne</button>
+
+        <div class="row justify-content-end">
+            <div class="col-md-4">
+                <ul class="list-group shadow-sm">
+                    <li class="list-group-item d-flex justify-content-between bg-light fw-semibold">
+                        <span>Totaux HT</span>
+                        <strong id="totalHT">0.00</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between bg-light fw-semibold">
+                        <span>TVA (@Model.Input.TauxTVA ?? 20)%</span>
+                        <strong id="totalTVA">0.00</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between bg-primary text-white fw-bold">
+                        <span>Total TTC</span>
+                        <strong id="totalTTC">0.00</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-4 d-flex justify-content-end">
+            <button type="submit" class="btn btn-success px-5 py-2 fw-semibold">Générer le @Model.Input.TypeDocument?.ToLower()</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        function normalizeNumber(value) {
+            // Remplace la virgule par un point et convertit en float
+            if (!value) return 0;
+            return parseFloat(value.replace(",", "."));
+        }
+
+        function bindEvents() {
+            document.querySelectorAll(".ligne-quantite, .ligne-prix, #tauxTVA").forEach(input => {
+                input.addEventListener("input", updateTotals);
+            });
+        }
+
+        function addLine() {
+            const table = document.querySelector("#lignesTable tbody");
+            const index = table.rows.length;
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td><input name="Input.Lignes[${index}].Description" class="form-control" /></td>
+                <td><input name="Input.Lignes[${index}].Quantite" type="number" min="1" value="1" class="form-control ligne-quantite" /></td>
+                <td><input name="Input.Lignes[${index}].PrixUnitaire" type="number" step="0.01" value="0" class="form-control ligne-prix" /></td>
+                <td class="ligne-total">0.00</td>
+                <td><button type="button" onclick="removeLine(this)" class="btn btn-sm btn-outline-danger">🗑</button></td>
+            `;
+            table.appendChild(row);
+            bindEvents();
+            updateTotals();
+        }
+
+        function removeLine(button) {
+            button.closest("tr").remove();
+            updateTotals();
+        }
+
+        function updateTotals() {
+            let totalHT = 0;
+
+            // Récupère correctement la TVA (id ajouté plus bas dans Razor)
+            const tvaInput = document.getElementById("tauxTVA");
+            const tvaRate = normalizeNumber(tvaInput.value) || 20;
+
+            document.querySelectorAll("#lignesTable tbody tr").forEach(row => {
+                const qty = normalizeNumber(row.querySelector(".ligne-quantite").value);
+                const price = normalizeNumber(row.querySelector(".ligne-prix").value);
+                const total = qty * price;
+                row.querySelector(".ligne-total").textContent = total.toFixed(2);
+                totalHT += total;
+            });
+
+            const totalTVA = totalHT * tvaRate / 100;
+            const totalTTC = totalHT + totalTVA;
+
+            document.getElementById("totalHT").textContent = totalHT.toFixed(2);
+            document.getElementById("totalTVA").textContent = totalTVA.toFixed(2);
+            document.getElementById("totalTTC").textContent = totalTTC.toFixed(2);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            bindEvents();
+            updateTotals();
+        });
+    </script>
+}
+

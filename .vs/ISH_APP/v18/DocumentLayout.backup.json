@@ -1,0 +1,182 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\models\\assurance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:models\\assurance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\.getignore||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:.getignore||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\pages\\dossierpages\\facturation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:pages\\dossierpages\\facturation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\pages\\dossierpages\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:pages\\dossierpages\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\pages\\authpages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:pages\\authpages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\pages\\clientpages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:pages\\clientpages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\pages\\dossierpages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:pages\\dossierpages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\pages\\assurancepages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:pages\\assurancepages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": ".getignore",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\.getignore",
+              "RelativeDocumentMoniker": ".getignore",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\.getignore",
+              "RelativeToolTip": ".getignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-03-18T21:33:09.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Facturation.cshtml",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Facturation.cshtml",
+              "RelativeDocumentMoniker": "Pages\\DossierPages\\Facturation.cshtml",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Facturation.cshtml",
+              "RelativeToolTip": "Pages\\DossierPages\\Facturation.cshtml",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAkwKIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-11T12:04:33.981Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Assurance.cs",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Models\\Assurance.cs",
+              "RelativeDocumentMoniker": "Models\\Assurance.cs",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Models\\Assurance.cs",
+              "RelativeToolTip": "Models\\Assurance.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-09T14:07:51.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-18T21:25:52.475Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Details.cshtml",
+              "RelativeDocumentMoniker": "Pages\\DossierPages\\Details.cshtml",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Details.cshtml",
+              "RelativeToolTip": "Pages\\DossierPages\\Details.cshtml",
+              "ViewState": "AgIAACgBAAAAAAAAAAAAAEYBAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-11T12:04:22.714Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Index.cshtml.cs",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\Index.cshtml.cs",
+              "RelativeToolTip": "Pages\\Index.cshtml.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAIAwwE4AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-09T14:17:19.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Index.cshtml",
+              "RelativeDocumentMoniker": "Pages\\DossierPages\\Index.cshtml",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Index.cshtml",
+              "RelativeToolTip": "Pages\\DossierPages\\Index.cshtml",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAAAK4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-09T14:12:38.276Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\ClientPages\\Index.cshtml",
+              "RelativeDocumentMoniker": "Pages\\ClientPages\\Index.cshtml",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\ClientPages\\Index.cshtml",
+              "RelativeToolTip": "Pages\\ClientPages\\Index.cshtml",
+              "ViewState": "AgIAALAAAAAAAAAAAAAwwIsAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-09T14:11:18.137Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\AuthPages\\Login.cshtml",
+              "RelativeDocumentMoniker": "Pages\\AuthPages\\Login.cshtml",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\AuthPages\\Login.cshtml",
+              "RelativeToolTip": "Pages\\AuthPages\\Login.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAcAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-09T14:09:57.014Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\AssurancePages\\Index.cshtml",
+              "RelativeDocumentMoniker": "Pages\\AssurancePages\\Index.cshtml",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\AssurancePages\\Index.cshtml",
+              "RelativeToolTip": "Pages\\AssurancePages\\Index.cshtml",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAGYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-09T14:08:59.057Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

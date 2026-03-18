@@ -1,0 +1,174 @@
+﻿@page
+@* Déclare cette vue comme une Razor Page *@
+
+@model ISH_APP.Pages.DossierPages.IndexModel
+@* Associe la vue au PageModel IndexModel *@
+
+@{
+    // Titre de la page affiché dans le layout
+    ViewData["Title"] = "Dossiers";
+}
+
+<!-- Conteneur principal avec espacement vertical -->
+<div class="container py-5">
+
+    <!-- Titre principal de la page -->
+    <h1 class="display-5 mb-4">📋 Gestion des Dossiers</h1>
+
+    <!-- Bouton de création d’un nouveau dossier -->
+    <div class="d-flex justify-content-end mb-4">
+        <a class="btn btn-primary" asp-page="Create">
+            <i class="bi bi-plus-circle"></i> Créer un Nouveau Dossier
+        </a>
+    </div>
+
+    <!-- Formulaire de filtrage (GET pour conserver les paramètres dans l’URL) -->
+    <form method="get" class="mb-4 d-flex gap-3 align-items-end">
+
+        <!-- Filtre par nom du client -->
+        <div>
+            <label class="form-label">Nom du Client</label>
+            <input type="text"
+                   name="nomClient"
+                   value="@Model.NomClient"
+                   class="form-control" />
+        </div>
+
+        <!-- Filtre par priorité -->
+        <div>
+            <label class="form-label">Priorité</label>
+            <select name="priorite" class="form-select">
+                <option value="">Toutes</option>
+                <option value="Haute" selected="@(Model.Priorite == "Haute")">Haute</option>
+                <option value="Moyenne" selected="@(Model.Priorite == "Moyenne")">Moyenne</option>
+                <option value="Basse" selected="@(Model.Priorite == "Basse")">Basse</option>
+            </select>
+        </div>
+
+        <!-- Bouton de validation du filtre -->
+        <button type="submit" class="btn btn-primary">
+            Filtrer
+        </button>
+    </form>
+
+    <!-- Tableau listant les dossiers -->
+    <table class="table table-hover table-bordered shadow-sm">
+
+        <!-- En-tête du tableau -->
+        <thead class="table-dark">
+            <tr>
+                <th>Numéro ID</th>
+                <th>Type</th>
+                <th>Client</th>
+                <th>Assurance</th>
+                <th>Prestataire</th>
+                <th>Priorité</th>
+                <th>État</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <!-- Corps du tableau -->
+        <tbody>
+            @* Parcours de la liste des dossiers fournie par le PageModel *@
+            @foreach (var item in Model.Dossier)
+            {
+                /*
+                Récupération de l'utilisateur ayant le rôle "Assurance"
+                lié au dossier via la table DossierUtilisateurs
+                */
+                var utilisateurAssurance = item.DossierUtilisateurs
+                .Select(du => du.Utilisateur)
+                .FirstOrDefault(u => u.Role == "Assurance");
+
+                /*
+                Récupération de l'utilisateur ayant le rôle "Prestataire"
+                */
+                var utilisateurPrestataire = item.DossierUtilisateurs
+                .Select(du => du.Utilisateur)
+                .FirstOrDefault(u => u.Role == "Prestataire");
+
+                <tr>
+                    <!-- Identifiant du dossier -->
+                    <td>@item.DossierID</td>
+
+                    <!-- Type de sinistre -->
+                    <td>@item.TypeSinistre</td>
+
+                    <!-- Nom et prénom du client associé -->
+                    <td>@item.Client?.Nom @item.Client?.Prenom</td>
+
+                    <!-- Assurance liée au dossier -->
+                    <td>
+                        @if (utilisateurAssurance != null)
+                        {
+                            @utilisateurAssurance.Nom @utilisateurAssurance.Prenom
+                        }
+                        else
+                        {
+                            <span class="text-muted fst-italic">Non assigné</span>
+                        }
+                    </td>
+
+                    <!-- Prestataire lié au dossier -->
+                    <td>
+                        @if (utilisateurPrestataire != null)
+                        {
+                            @utilisateurPrestataire.Nom @utilisateurPrestataire.Prenom
+                        }
+                        else
+                        {
+                            <span class="text-muted fst-italic">Non assigné</span>
+                        }
+                    </td>
+
+                    <!-- Priorité affichée avec badge coloré -->
+                    <td>
+                        @switch (item.Priorite)
+                        {
+                            case "Haute":
+                                <span class="badge bg-danger">Haute</span>
+                                break;
+
+                            case "Moyenne":
+                                <span class="badge bg-warning">Moyenne</span>
+                                break;
+
+                            case "Basse":
+                                <span class="badge bg-success">Basse</span>
+                                break;
+
+                            default:
+                                <span class="badge bg-secondary">@item.Priorite</span>
+                                break;
+                        }
+                    </td>
+
+                    <!-- État du dossier -->
+                    <td>@item.Etat</td>
+
+                    <!-- Boutons d’actions CRUD -->
+                    <td>
+                        <a class="btn btn-sm btn-primary"
+                           asp-page="./Edit"
+                           asp-route-id="@item.DossierID">
+                            <i class="bi bi-pencil-square"></i> Edit
+                        </a>
+
+                        <a class="btn btn-sm btn-info"
+                           asp-page="./Details"
+                           asp-route-id="@item.DossierID">
+                            <i class="bi bi-info-circle"></i> Details
+                        </a>
+
+                        <a class="btn btn-sm btn-danger"
+                           asp-page="./Delete"
+                           asp-route-id="@item.DossierID">
+                            <i class="bi bi-trash"></i> Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

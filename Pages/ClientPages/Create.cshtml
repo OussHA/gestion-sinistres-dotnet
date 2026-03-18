@@ -1,0 +1,68 @@
+﻿@page
+@model ISH_APP.Pages.ClientPages.CreateModel
+@{
+    ViewData["Title"] = "Créer un Client";
+}
+
+<h2 class="mb-4">Créer un nouveau client</h2>
+
+<form method="post" class="needs-validation" novalidate>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label asp-for="Client.Nom" class="form-label">Nom</label>
+            <input asp-for="Client.Nom" class="form-control" required />
+            <span asp-validation-for="Client.Nom" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Client.Prenom" class="form-label">Prénom</label>
+            <input asp-for="Client.Prenom" class="form-control" required />
+            <span asp-validation-for="Client.Prenom" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label asp-for="Client.Telephone" class="form-label">Téléphone</label>
+            <input asp-for="Client.Telephone" class="form-control" />
+            <span asp-validation-for="Client.Telephone" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Client.Mail" class="form-label">Email</label>
+            <input asp-for="Client.Mail" class="form-control" type="email" />
+            <span asp-validation-for="Client.Mail" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label asp-for="Client.Adresse" class="form-label">Adresse</label>
+            <input asp-for="Client.Adresse" class="form-control" />
+            <span asp-validation-for="Client.Adresse" class="text-danger"></span>
+        </div>
+        <div class="col-md-4">
+            <label asp-for="Client.CodePostal" class="form-label">Code Postal</label>
+            <input asp-for="Client.CodePostal" class="form-control" />
+            <span asp-validation-for="Client.CodePostal" class="text-danger"></span>
+        </div>
+        <div class="col-md-4">
+            <label asp-for="Client.Ville" class="form-label">Ville</label>
+            <input asp-for="Client.Ville" class="form-control" />
+            <span asp-validation-for="Client.Ville" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Client.AssuranceID" class="form-label">Assurance</label>
+        <select asp-for="Client.AssuranceID" asp-items="Model.AssuranceList" class="form-select">
+            <option value="">-- Sélectionner une assurance --</option>
+        </select>
+        <span asp-validation-for="Client.AssuranceID" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Créer</button>
+    <a asp-page="./Index" class="btn btn-secondary ms-2">Annuler</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

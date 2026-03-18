@@ -1,0 +1,86 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+<style >
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+</style >
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0.375rem;
+}
+
+body, html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.main-container {
+    margin-left: 200px; /* même largeur que le sidebar */
+    width: calc(100% - 200px);
+    min-height: 100vh;
+}
+
+.table thead th {
+    vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+}
+tr:hover {
+    background-color: #f1f1f1;
+}
+.border-mauve {
+    border-color: #d6b3ff !important; /* mauve clair */
+}
+<style >
+h2.text-center {
+    color: #0d6efd; /* Bleu bootstrap */
+    font-weight: 600;
+}
+
+h4, h5 {
+    color: #6c757d; /* gris bootstrap (text-secondary) */
+    font-weight: 500;
+}
+/* S’assurer que les textes “infos” sont bien noirs */
+strong, p, a, div {
+    color: #000000; /* noir */
+}
+
+</style >
+

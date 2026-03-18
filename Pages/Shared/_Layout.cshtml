@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+ @inject IHttpContextAccessor HttpContextAccessor
+@{
+    var utilisateurNom = HttpContextAccessor.HttpContext?.Session.GetString("UtilisateurNom") ?? "Utilisateur";
+    var path = Context.Request.Path.Value?.ToLower();
+    var afficherSidebar = !path.Contains("/authpages/login");
+    var utilisateurId = HttpContextAccessor.HttpContext?.Session.GetInt32("UtilisateurID");
+
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ISH_APP</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ISH_APP.styles.css" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <!-- jQuery (requis par Select2) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+</head>
+<body>
+    <div class="d-flex">
+        @if (afficherSidebar)
+        {
+            <div class="bg-dark text-white p-3 d-flex flex-column justify-content-between"
+                 style="width: 180px; height: 100vh; position: fixed; top: 0; left: 0; z-index: 1000;">
+                <div>
+                    <!-- Profil et Logo réduit -->
+                    <div class="mb-4 text-center">
+                        <img src="@Url.Content("~/images/logo.png")" alt="Logo" class="img-fluid mb-2" style="max-width: 120px; height: auto;" />
+                        <h5>@utilisateurNom</h5>
+                    </div>
+
+                    <!-- Menu avec texte -->
+                    <nav class="nav flex-column">
+
+                        @{
+                            var role = HttpContextAccessor.HttpContext?.Session.GetString("UtilisateurRole");
+                        }
+
+                        <a class="nav-link text-white" asp-page="/Index">📂 Dossiers</a>
+
+                        @if (role == "Interne")
+                        {
+                        <a class="nav-link text-white" asp-page="/PrestatairePages/Index">🛠️ Prestataires</a>
+                        <a class="nav-link text-white" asp-page="/ClientPages/Index">👥 Clients</a>
+                        <a class="nav-link text-white" asp-page="/AssurancePages/Index">🏢 Assurances</a>
+                        <a class="nav-link text-white" asp-page="/Statistiques/Index">📊 Statistiques</a>
+                        }
+
+                    </nav>
+                </div>
+
+                <!-- Bas de la sidebar -->
+                <div>
+                    <hr class="bg-light" />
+                    <a class="nav-link text-white" asp-page="/Parametres">⚙️ Paramètres</a>
+                    @if (utilisateurId != null)
+                    {
+                        <a class="nav-link text-white" asp-page="/UtilisateurPages/Details" asp-route-id="@utilisateurId">👤 Mon Compte</a>
+                    }
+
+                    @if (string.IsNullOrEmpty(HttpContextAccessor.HttpContext?.Session.GetString("UtilisateurNom")))
+                    {
+                        <a class="nav-link text-success" asp-page="/AuthPages/Login">🔐 Connexion</a>
+                    }
+                    else
+                    {
+                        <a class="nav-link text-danger" asp-page="/AuthPages/Logout">🚪 Déconnexion</a>
+                    }
+                </div>
+            </div>
+        }
+
+        <!-- Contenu principal -->
+        <div class="main-container">
+            <header>
+                <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" asp-page="/Index">Services numériques de gestion centralisée</a>
+                    </div>
+                </nav>
+            </header>
+
+            <main role="main" class="container-fluid ps-0 pe-4 pb-3">
+                @RenderBody()
+            </main>
+
+            <footer class="border-top footer text-muted mt-auto">
+                <div class="container-fluid">
+                    &copy; 2025 - ISH
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

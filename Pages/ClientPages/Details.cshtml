@@ -1,0 +1,104 @@
+﻿@page "{id:int}"
+@model ISH_APP.Pages.ClientPages.DetailsModel
+@{
+    ViewData["Title"] = "Détails du client";
+}
+
+<div class="container py-5">
+    <h2 class="text-center mb-4">👤 Détails du Client</h2>
+
+    <div class="card shadow-lg border-0">
+        <div class="card-body p-4">
+
+            <h4 class="mb-3 border-bottom pb-2">📋 Informations personnelles</h4>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <strong>Nom :</strong> @Model.Client.Nom
+                </div>
+                <div class="col-md-6">
+                    <strong>Prénom :</strong> @Model.Client.Prenom
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <strong>Téléphone :</strong> @Model.Client.Telephone
+                </div>
+                <div class="col-md-6">
+                    <strong>Email :</strong> @Model.Client.Mail
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <strong>Adresse :</strong> @Model.Client.Adresse
+                </div>
+                <div class="col-md-3">
+                    <strong>Code postal :</strong> @Model.Client.CodePostal
+                </div>
+                <div class="col-md-3">
+                    <strong>Ville :</strong> @Model.Client.Ville
+                </div>
+            </div>
+
+            <h4 class="mb-3 border-bottom pb-2">🛡️ Assurance</h4>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <strong>Compagnie :</strong> @Model.Client.Assurance?.Nom
+                </div>
+                <div class="col-md-3">
+                    <strong>Type de contrat :</strong> @Model.Client.TypeAssurance
+                </div>
+            </div>
+
+            <h4 class="mt-4">Dossiers associés</h4>
+
+            @if (Model.DossiersClient.Any())
+            {
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>TypeSinistre</th>
+                            <th>État</th>
+                            <th>Priorité</th>
+                            <th>Date déclaration</th>
+                            <th>Prestataire</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var dossier in Model.DossiersClient)
+                        {
+                            <tr>
+                                <td>@dossier.DossierID</td>
+                                <td>@dossier.TypeSinistre</td>
+                                <td>@dossier.Etat</td>
+                                <td>@dossier.Priorite</td>
+                                <td>@(dossier.DateDeclaration?.ToString("dd/MM/yyyy") ?? "-")</td>
+                                <td>@dossier.Prestataire?.Nom</td>
+                                <td>
+                                    <a asp-page="/DossierPages/Details" asp-route-id="@dossier.DossierID" class="btn btn-sm btn-primary">Voir</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>Aucun dossier associé à ce client.</p>
+            }
+
+            <div class="d-flex justify-content-between mt-4">
+                <a class="btn btn-outline-primary" asp-page="./Edit" asp-route-id="@Model.Client.ClientID">
+                    ✏️ Modifier
+                </a>
+                <a class="btn btn-secondary" asp-page="./Index">
+                    ← Retour à la liste
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>

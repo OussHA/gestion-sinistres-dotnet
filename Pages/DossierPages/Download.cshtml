@@ -1,0 +1,19 @@
+﻿@page "{id}"
+@model ISH_APP.Pages.DossierPages.DownloadModel
+
+@{
+    ViewData["Title"] = "Télécharger la pièce jointe";
+}
+
+<h3>Téléchargement de la pièce jointe</h3>
+
+@if (Model.PieceJointe != null)
+{
+    <a href="@Url.Page("/DossierPages/Download", new { id = Model.PieceJointe.PieceJointeID })" class="btn btn-primary">
+        Télécharger @Model.PieceJointe.NomFichier
+    </a>
+}
+else
+{
+    <p>La pièce jointe est introuvable.</p>
+}

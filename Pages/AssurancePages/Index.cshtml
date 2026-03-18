@@ -1,0 +1,102 @@
+﻿@page
+@* Indique que ce fichier est une Razor Page *@
+
+@model ISH_APP.Pages.AssurancePages.IndexModel
+@* Lie cette vue au PageModel IndexModel *@
+
+@{
+    // Titre de la page (utilisé notamment dans le layout)
+    ViewData["Title"] = "Assurances";
+}
+
+<!-- Titre principal de la page -->
+<h1 class="mb-4 text-primary">Liste des Assurances</h1>
+
+<!-- Bouton permettant de naviguer vers la page de création -->
+<div class="mb-3">
+    <a asp-page="Create" class="btn btn-success">
+        <!-- Icône Bootstrap -->
+        <i class="bi bi-plus-lg"></i> Créer une nouvelle assurance
+    </a>
+</div>
+
+<!-- Conteneur responsive pour le tableau -->
+<div class="table-responsive shadow-sm rounded">
+    <table class="table table-hover align-middle">
+
+        <!-- En-tête du tableau -->
+        <thead class="table-dark">
+            <tr>
+                <!-- DisplayNameFor récupère automatiquement le nom de la propriété -->
+                <th>@Html.DisplayNameFor(model => model.Assurance[0].Nom)</th>
+                <th>@Html.DisplayNameFor(model => model.Assurance[0].Services)</th>
+                <th>@Html.DisplayNameFor(model => model.Assurance[0].Contact)</th>
+                <th>@Html.DisplayNameFor(model => model.Assurance[0].Mail)</th>
+                <th>@Html.DisplayNameFor(model => model.Assurance[0].Adresse)</th>
+                <th>@Html.DisplayNameFor(model => model.Assurance[0].CodePostal)</th>
+                <th>@Html.DisplayNameFor(model => model.Assurance[0].Ville)</th>
+                <th>@Html.DisplayNameFor(model => model.Assurance[0].SiteWeb)</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+
+        <!-- Corps du tableau -->
+        <tbody>
+            @* Boucle sur la liste des assurances fournie par le PageModel *@
+            @foreach (var item in Model.Assurance)
+            {
+                <tr>
+                    <!-- Nom de l'assurance mis en valeur -->
+                    <td class="fw-semibold">
+                        @Html.DisplayFor(modelItem => item.Nom)
+                    </td>
+
+                    <td>@Html.DisplayFor(modelItem => item.Services)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Contact)</td>
+
+                    <!-- Lien mail cliquable -->
+                    <td>
+                        <a href="mailto:@item.Mail" class="text-decoration-none">
+                            @Html.DisplayFor(modelItem => item.Mail)
+                        </a>
+                    </td>
+
+                    <td>@Html.DisplayFor(modelItem => item.Adresse)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CodePostal)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Ville)</td>
+
+                    <!-- Lien vers le site web dans un nouvel onglet -->
+                    <td>
+                        <a href="@item.SiteWeb" target="_blank" class="text-decoration-none">
+                            @Html.DisplayFor(modelItem => item.SiteWeb)
+                        </a>
+                    </td>
+
+                    <!-- Boutons d'actions CRUD -->
+                    <td class="text-center">
+                        <!-- Bouton Modifier -->
+                        <a asp-page="./Edit"
+                           asp-route-id="@item.AssuranceID"
+                           class="btn btn-sm btn-warning me-1">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+
+                        <!-- Bouton Détails -->
+                        <a asp-page="./Details"
+                           asp-route-id="@item.AssuranceID"
+                           class="btn btn-sm btn-info me-1">
+                            <i class="bi bi-eye"></i>
+                        </a>
+
+                        <!-- Bouton Supprimer -->
+                        <a asp-page="./Delete"
+                           asp-route-id="@item.AssuranceID"
+                           class="btn btn-sm btn-danger">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

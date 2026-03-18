@@ -1,0 +1,185 @@
+﻿@page
+@model ISH_APP.Pages.DossierPages.EditModel
+@{
+    ViewData["Title"] = "Modifier Dossier";
+    var utilisateurNom = HttpContext.Session.GetString("UtilisateurNom") ?? "Utilisateur";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-primary text-white text-center rounded-top-4">
+                    <h3 class="mb-0">
+                        Modifier le dossier n° @Model.Dossier.DossierID –
+                        @Model.Dossier.Client.Nom @Model.Dossier.Client.Prenom
+                    </h3>
+                </div>
+
+                <div class="card-body p-4">
+
+                    <form method="post" enctype="multipart/form-data">
+                        <partial name="_ValidationScriptsPartial" />
+
+                        @if (!ViewData.ModelState.IsValid)
+                        {
+                            <div class="alert alert-danger">
+                                <strong>⚠️ Erreurs détectées :</strong>
+                                <ul>
+                                    @foreach (var modelError in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                    {
+                                        <li>@modelError.ErrorMessage</li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+
+                        <!-- Champ cachés -->
+                        <input type="hidden" name="DossierID" value="@Model.Dossier.DossierID" />
+                        <input type="hidden" name="DateDeclaration" value="@Model.Dossier.DateDeclaration?.ToString("yyyy-MM-dd")" />
+
+                        <!-- Type de sinistre -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Type de sinistre</label>
+                            <input type="text" class="form-control" name="TypeSinistre"
+                                   value="@Model.Dossier.TypeSinistre" placeholder="Ex: Dégât des eaux" required />
+                        </div>
+
+                        <!-- Client -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Client</label>
+                            <select name="ClientID" class="form-select" required>
+                                <option value="">Sélectionnez un client</option>
+                                @foreach (var client in (SelectList)ViewData["ClientID"])
+                                {
+                                    <option value="@client.Value" selected="@(client.Value == Model.Dossier.ClientID.ToString())">@client.Text</option>
+                                }
+                            </select>
+                        </div>
+
+                        <!-- Assurance -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Assurance</label>
+                            <select name="AssuranceID" class="form-select" required>
+                                <option value="">Sélectionnez une assurance</option>
+                                @foreach (var assurance in (SelectList)ViewData["AssuranceID"])
+                                {
+                                    <option value="@assurance.Value" selected="@(assurance.Value == Model.Dossier.AssuranceID.ToString())">@assurance.Text</option>
+                                }
+                            </select>
+                        </div>
+
+                        <!-- Prestataire -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Prestataire</label>
+                            <select name="PrestataireID" class="form-select" required>
+                                <option value="">Sélectionnez un prestataire</option>
+                                @foreach (var prestataire in (SelectList)ViewData["PrestataireID"])
+                                {
+                                    <option value="@prestataire.Value" selected="@(prestataire.Value == Model.Dossier.PrestataireID.ToString())">@prestataire.Text</option>
+                                }
+                            </select>
+                        </div>
+
+                        <!-- Etat -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">État du dossier</label>
+                            <select name="Etat" class="form-select">
+                                <option value="">-- Sélectionner --</option>
+                                <option value="Recherche Prestataire" selected="@(Model.Dossier.Etat == "Recherche Prestataire")">Recherche Prestataire</option>
+                                <option value="Attente Validation Assurance" selected="@(Model.Dossier.Etat == "Attente Validation Assurance")">Attente Validation Assurance</option>
+                                <option value="En cours" selected="@(Model.Dossier.Etat == "En cours")">En cours</option>
+                                <option value="Validé" selected="@(Model.Dossier.Etat == "Validé")">Validé</option>
+                                <option value="À refaire" selected="@(Model.Dossier.Etat == "À refaire")">À refaire</option>
+                            </select>
+                        </div>
+
+                        <!-- Priorité -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Priorité</label>
+                            <select name="Priorite" class="form-select">
+                                <option value="">-- Sélectionner --</option>
+                                <option value="Haute" selected="@(Model.Dossier.Priorite == "Haute")">Haute</option>
+                                <option value="Moyenne" selected="@(Model.Dossier.Priorite == "Moyenne")">Moyenne</option>
+                                <option value="Basse" selected="@(Model.Dossier.Priorite == "Basse")">Basse</option>
+                            </select>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Description</label>
+                            <textarea name="Description" class="form-control" rows="3">@Model.Dossier.Description</textarea>
+                        </div>
+
+                        <!-- Dates de travaux -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Date début travaux</label>
+                                <input type="date" name="DateDebutTravaux" class="form-control"
+                                       value="@Model.Dossier.DateDebutTravaux?.ToString("yyyy-MM-dd")" />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Date fin travaux</label>
+                                <input type="date" name="DateFinTravaux" class="form-control"
+                                       value="@Model.Dossier.DateFinTravaux?.ToString("yyyy-MM-dd")" />
+                            </div>
+                        </div>
+
+                        <!-- Pièces jointes -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Ajouter des pièces jointes</label>
+                            <input type="file" name="PiecesJointes" multiple class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Pièces Jointes Actuelles</label>
+                            @if (Model.PiecesDejaJointes.Any())
+                            {
+                                <ul class="list-group">
+                                    @foreach (var piece in Model.PiecesDejaJointes)
+                                    {
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <a href="@Url.Page("/DossierPages/Download", new { id = piece.PieceJointeID })" target="_blank">
+                                                @piece.NomFichier
+                                            </a>
+                                            <small class="text-muted">@piece.TypeFichier</small>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <p class="text-muted">Aucune pièce jointe.</p>
+                            }
+                        </div>
+
+                        <!-- Commentaires -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Commentaire ISH</label>
+                            <textarea name="CommentaireISH" class="form-control">@Model.Dossier.CommentaireISH</textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Commentaire Assurance</label>
+                            <textarea name="CommentaireAssurance" class="form-control">@Model.Dossier.CommentaireAssurance</textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Commentaire Prestataire</label>
+                            <textarea name="CommentairePrestataire" class="form-control">@Model.Dossier.CommentairePrestataire</textarea>
+                        </div>
+
+                        <!-- Boutons -->
+                        <div class="d-flex justify-content-between mt-4">
+                            <a class="btn btn-outline-secondary" asp-page="/DossierPages/Details" asp-route-id="@Model.Dossier.DossierID">
+                                ⬅️ Retour
+                            </a>
+                            <button type="submit" class="btn btn-success">💾 Sauvegarder</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

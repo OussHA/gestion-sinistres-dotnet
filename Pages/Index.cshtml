@@ -1,0 +1,234 @@
+﻿@page
+@model ISH_APP.Pages.IndexModel
+@{
+    Layout = "_Layout"; // Définit le layout principal utilisé par la page
+    ViewData["Title"] = "Accueil"; // Titre de la page pour le navigateur
+    // Récupère le nom de l'utilisateur depuis la session, sinon affiche "Utilisateur"
+    var utilisateurNom = HttpContext.Session.GetString("UtilisateurNom") ?? "Utilisateur";
+}
+
+<!-- Conteneur principal avec une hauteur minimale de la fenêtre pour que le contenu remplisse l'écran -->
+<div class="d-flex" style="min-height: 100vh;">
+
+    <!-- Section principale qui prend tout l'espace disponible -->
+    <div class="flex-grow-1">
+        <div class="container-fluid py-5">
+
+            <!-- Titre de bienvenue dynamique avec le nom de l'utilisateur -->
+            <h1 class="display-5 mb-4">Bienvenue, @utilisateurNom 👋</h1>
+
+            <!-- Affichage de l'état actuel du filtre (pour debug ou info) -->
+            <p><strong>Vos dossiers :</strong> @Model.EtatFiltre</p>
+
+            <!-- Cartes statistiques présentant le nombre de dossiers selon leur état -->
+            <div class="row g-4">
+                <!-- Carte pour les dossiers "En cours" -->
+                <div class="col-sm-6 col-xl-4">
+                    <a class="text-decoration-none" asp-page="/DossierPages/Index" asp-route-EtatFiltre="En cours">
+                        <div class="card border-start border-primary border-4 shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">📂 Dossiers en cours</h5>
+                                <p class="card-text fs-4 fw-bold">@Model.EnCours</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Carte pour les dossiers en recherche de prestataire -->
+                <div class="col-sm-6 col-xl-4">
+                    <a class="text-decoration-none" asp-page="/DossierPages/Index" asp-route-EtatFiltre="Recherche Prestataire">
+                        <div class="card border-start border-info border-4 shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">🔍 Recherche Prestataire</h5>
+                                <p class="card-text fs-4 fw-bold">@Model.Recherche</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Carte pour les dossiers validés-->
+                <div class="col-sm-6 col-xl-4">
+                    <a class="text-decoration-none" asp-page="/DossierPages/Index" asp-route-EtatFiltre="Validé">
+                        <div class="card shadow-sm h-100" style="border: 4px solid #155724; background-color: #d4edda; color: #155724;">
+                            <div class="card-body">
+                                <h5 class="card-title">✅ Dossiers validés</h5>
+                                <p class="card-text fs-4 fw-bold">@Model.Valide</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Carte pour les dossiers à refaire -->
+                <div class="col-sm-6 col-xl-4">
+                    <a class="text-decoration-none" asp-page="/DossierPages/Index" asp-route-EtatFiltre="À refaire">
+                        <div class="card border-start border-danger border-4 shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">❌ À refaire</h5>
+                                <p class="card-text fs-4 fw-bold">@Model.ARefaire</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Carte pour les dossiers en attente de validation assurance -->
+                <div class="col-sm-6 col-xl-4">
+                    <a class="text-decoration-none" asp-page="/DossierPages/Index" asp-route-EtatFiltre="Attente Validation Assurance">
+                        <div class="card border border-4 shadow-sm h-100 border-mauve">
+                            <div class="card-body">
+                                <h5 class="card-title">⏳ Attente Validation Assurance</h5>
+                                <p class="card-text fs-4 fw-bold">@Model.AttenteAssurance</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Carte pour les dossiers en retard -->
+                <div class="col-sm-6 col-xl-4">
+                    <a class="text-decoration-none" asp-page="/DossierPages/Index" asp-route-EtatFiltre="En retard">
+                        <div class="card border-start border-warning border-4 shadow-sm h-100" style="background-color: #fff4e5;">
+                            <div class="card-body">
+                                <h5 class="card-title">⚠️ Dossiers en retard</h5>
+                                <p class="card-text fs-4 fw-bold">@Model.EnRetard</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Séparateur visuel -->
+            <hr class="my-5" />
+
+            <!-- Section liste des dossiers avec filtre -->
+            <h2 class="mb-3">📋 Vos Dossiers en cours </h2>
+
+            <!-- Formulaire de filtrage -->
+            <form method="get" class="mb-4 d-flex flex-wrap gap-3 align-items-end">
+                <!-- Filtre par ID -->
+                <div>
+                    <label class="form-label">ID Dossier</label>
+                    <input type="number" name="IdDossier" value="@Model.IdDossier" class="form-control" min="1" />
+                </div>
+
+                <!-- Filtre par nom du client -->
+                <div>
+                    <label class="form-label">Nom du client</label>
+                    <input type="text" name="nomClient" value="@Model.NomClient" class="form-control" />
+                </div>
+
+                <!-- Filtre par priorité -->
+                <div>
+                    <label class="form-label">Priorité</label>
+                    <select name="priorite" class="form-select">
+                        <option value="">Toutes</option>
+                        <option value="Haute" selected="@(Model.Priorite == "Haute")">Haute</option>
+                        <option value="Moyenne" selected="@(Model.Priorite == "Moyenne")">Moyenne</option>
+                        <option value="Basse" selected="@(Model.Priorite == "Basse")">Basse</option>
+                    </select>
+                </div>
+
+                <!-- Champ caché pour conserver l'état du filtre actuel -->
+                <input type="hidden" name="EtatFiltre" value="@Model.EtatFiltre " />
+
+                <!-- Bouton pour soumettre le formulaire et appliquer les filtres -->
+                <button type="submit" class="btn btn-primary">Filtrer</button>
+
+                <!-- Bouton pour réinitialiser les filtres et revenir à la liste complète -->
+                <a href="/Index" class="btn btn-outline-secondary">Réinitialiser</a>
+
+                <!-- Bouton pour créer un nouveau dossier, aligné à droite -->
+                <a href="/DossierPages/Create" class="btn btn-success ms-auto">Créer un dossier</a>
+            </form>
+
+            <!-- Tableau listant les dossiers filtrés -->
+            <table class="table table-hover table-bordered align-middle shadow-sm">
+                <thead class="table-dark">
+                    <tr>
+                        <th>N°</th>
+                        <th>Type</th>
+                        <th>Client</th>
+                        <th>Assurance</th>
+                        <th>Prestataire</th>
+                        <th>État</th>
+                        <th>Priorité</th>
+                        <th>Créé le</th>
+                        <th>Début Travaux</th>
+                        <th>Fin Travaux</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var dossier in Model.DossiersUtilisateur)
+                    {
+                        var utilisateurAssurance = dossier.DossierUtilisateurs?
+                        .Where(du => du.Utilisateur != null && du.Utilisateur.Role == "Assurance" && du.UtilisateurID == dossier.AssuranceID)
+                        .Select(du => du.Utilisateur)
+                        .FirstOrDefault();
+
+                        var utilisateurPrestataire = dossier.DossierUtilisateurs?
+                        .Where(du => du.Utilisateur != null && du.Utilisateur.Role == "Prestataire" && du.UtilisateurID == dossier.PrestataireID)
+                        .Select(du => du.Utilisateur)
+                        .FirstOrDefault();
+
+
+                        <tr style="cursor: pointer;" onclick="location.href='@Url.Page("/DossierPages/Details", new { id = dossier.DossierID })'">
+                            <td>@dossier.DossierID</td>
+                            <td>@dossier.TypeSinistre</td>
+                            <td>@dossier.Client?.Nom @dossier.Client?.Prenom</td>
+                            <td>
+                                @if (utilisateurAssurance != null)
+                                {
+                                    @utilisateurAssurance.Nom @utilisateurAssurance.Prenom
+                                }
+                                else
+                                {
+                                    <span class="text-muted fst-italic">Non assigné</span>
+                                }
+                            </td>
+                            <td>
+                                @if (utilisateurPrestataire != null)
+                                {
+                                    @utilisateurPrestataire.Nom @utilisateurPrestataire.Prenom
+                                }
+                                else
+                                {
+                                    <span class="text-muted fst-italic">Non assigné</span>
+                                }
+                            </td>
+                            <td>@dossier.Etat</td>
+                            <td>
+                                @switch (dossier.Priorite)
+                                {
+                                    case "Haute":
+                                        <span class="badge bg-danger">Haute</span>
+                                        break;
+                                    case "Moyenne":
+                                        <span class="badge bg-warning text-dark">Moyenne</span>
+                                        break;
+                                    case "Basse":
+                                        <span class="badge bg-success">Basse</span>
+                                        break;
+                                    default:
+                                        <span class="badge bg-secondary">@dossier.Priorite</span>
+                                        break;
+                                }
+                            </td>
+                            <td>@dossier.DateDeclaration?.ToString("dd/MM/yyyy")</td>
+                            <td>@dossier.DateDebutTravaux?.ToString("dd/MM/yyyy")</td>
+                            <td>@dossier.DateFinTravaux?.ToString("dd/MM/yyyy")</td>
+                            <td>
+                                <form method="post" asp-page-handler="Delete" asp-route-id="@dossier.DossierID"
+                                      onsubmit="return confirm('Confirmez-vous la suppression de ce dossier ?');"
+                                      style="display:inline;">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">Supprimer</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>
