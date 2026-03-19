@@ -4,8 +4,11 @@ using ISH_APP.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration["ConnectionStrings:DefaultConnection"];
+
 
 // Ajout Razor Pages
 builder.Services.AddRazorPages();
@@ -13,8 +16,10 @@ builder.Services.AddSession(); // se connecter à une session
 
 // Ajouter le DbContext avec la chaîne de connexion
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+    builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(connectionString)));
+
 builder.Services.AddAuthentication("Cookies")
     .AddCookie("Cookies", options =>
     {
