@@ -13,8 +13,8 @@ builder.Services.AddSession(); // se connecter à une session
 
 // Ajouter le DbContext avec la chaîne de connexion
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+    //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddAuthentication("Cookies")
     .AddCookie("Cookies", options =>
     {

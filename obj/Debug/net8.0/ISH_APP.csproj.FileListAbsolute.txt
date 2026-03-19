@@ -316,10 +316,12 @@ D:\MesProjets\ISH\ISH_APP\ISH_APP\obj\Debug\net8.0\staticwebassets.build.json.ca
 D:\MesProjets\ISH\ISH_APP\ISH_APP\obj\Debug\net8.0\staticwebassets.development.json
 D:\MesProjets\ISH\ISH_APP\ISH_APP\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 D:\MesProjets\ISH\ISH_APP\ISH_APP\obj\Debug\net8.0\swae.build.ex.cache
-D:\MesProjets\ISH\ISH_APP\ISH_APP\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\MesProjets\ISH\ISH_APP\ISH_APP\obj\Debug\net8.0\ISH_APP.csproj.Up2Date
 D:\MesProjets\ISH\ISH_APP\ISH_APP\obj\Debug\net8.0\ISH_APP.dll
 D:\MesProjets\ISH\ISH_APP\ISH_APP\obj\Debug\net8.0\refint\ISH_APP.dll
 D:\MesProjets\ISH\ISH_APP\ISH_APP\obj\Debug\net8.0\ISH_APP.pdb
 D:\MesProjets\ISH\ISH_APP\ISH_APP\obj\Debug\net8.0\ISH_APP.genruntimeconfig.cache
 D:\MesProjets\ISH\ISH_APP\ISH_APP\obj\Debug\net8.0\ref\ISH_APP.dll
+D:\MesProjets\ISH\ISH_APP\ISH_APP\bin\Debug\net8.0\Npgsql.dll
+D:\MesProjets\ISH\ISH_APP\ISH_APP\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\MesProjets\ISH\ISH_APP\ISH_APP\obj\Debug\net8.0\ISH_APP.sourcelink.json

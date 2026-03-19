@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ISH_APP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b1384287732f2e1b5b4b197f16a3ca96fa555496")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8efa406b128916d42eaaf957a253a08fe818ec5b")]
 [assembly: System.Reflection.AssemblyProductAttribute("ISH_APP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ISH_APP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
