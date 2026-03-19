@@ -3,8 +3,8 @@ using System;
 using ISH_APP.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
@@ -17,49 +17,49 @@ namespace ISH_APP.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.4")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+                .HasAnnotation("ProductVersion", "8.0.4")
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("ISH_APP.Models.Assurance", b =>
                 {
                     b.Property<int>("AssuranceID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AssuranceID"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("AssuranceID"));
 
                     b.Property<string>("Adresse")
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("CodePostal")
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("character varying(20)");
 
                     b.Property<string>("Contact")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Mail")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Nom")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Services")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("SiteWeb")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Ville")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("AssuranceID")
                         .HasName("PK__Assuranc__CB6737D6B5B8C069");
@@ -71,45 +71,45 @@ namespace ISH_APP.Migrations
                 {
                     b.Property<int>("ClientID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClientID"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ClientID"));
 
                     b.Property<string>("Adresse")
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("character varying(200)");
 
                     b.Property<int?>("AssuranceID")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("CodePostal")
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("character varying(20)");
 
                     b.Property<DateOnly?>("DateNaissance")
                         .HasColumnType("date");
 
                     b.Property<string>("Mail")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Nom")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Prenom")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Telephone")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("TypeAssurance")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Ville")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("ClientID")
                         .HasName("PK__Client__E67E1A04EAA5A29F");
@@ -123,24 +123,24 @@ namespace ISH_APP.Migrations
                 {
                     b.Property<int>("DossierID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DossierID"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("DossierID"));
 
                     b.Property<int?>("AssuranceID")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int?>("ClientID")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("CommentaireAssurance")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("CommentaireISH")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("CommentairePrestataire")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<DateOnly?>("DateDebutTravaux")
                         .HasColumnType("date");
@@ -152,25 +152,25 @@ namespace ISH_APP.Migrations
                         .HasColumnType("date");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Etat")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.Property<int?>("PrestataireID")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Priorite")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.Property<string>("TypeSinistre")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<int>("UtilisateurID")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("DossierID")
                         .HasName("PK__Dossier__CABB1DF09F9A6B6B");
@@ -189,10 +189,10 @@ namespace ISH_APP.Migrations
             modelBuilder.Entity("ISH_APP.Models.DossierUtilisateur", b =>
                 {
                     b.Property<int>("DossierID")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("UtilisateurID")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("DossierID", "UtilisateurID");
 
@@ -205,18 +205,18 @@ namespace ISH_APP.Migrations
                 {
                     b.Property<int>("FactureID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FactureID"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("FactureID"));
 
                     b.Property<string>("Commentaire")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<DateOnly?>("DateFacture")
                         .HasColumnType("date");
 
                     b.Property<int?>("DossierID")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<decimal?>("MontantHT")
                         .HasColumnType("decimal(10, 2)");
@@ -229,7 +229,7 @@ namespace ISH_APP.Migrations
 
                     b.Property<string>("Statut")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.HasKey("FactureID")
                         .HasName("PK__Facture__511BBA009F004EFE");
@@ -243,31 +243,31 @@ namespace ISH_APP.Migrations
                 {
                     b.Property<int>("HistoriqueID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HistoriqueID"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("HistoriqueID"));
 
                     b.Property<string>("AncienneValeur")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ChampModifie")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<DateTime?>("DateModification")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime")
-                        .HasDefaultValueSql("(getdate())");
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("(NOW())");
 
                     b.Property<int?>("DossierID")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("ModifiePar")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("NouvelleValeur")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("HistoriqueID")
                         .HasName("PK__Historiq__0028F06DE7117746");
@@ -281,28 +281,28 @@ namespace ISH_APP.Migrations
                 {
                     b.Property<int>("ModificationID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ModificationID"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ModificationID"));
 
                     b.Property<string>("Commentaire")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime?>("DateModification")
                         .HasColumnType("datetime");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<int?>("DossierID")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("TypeModification")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.Property<int?>("UtilisateurID")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("ModificationID")
                         .HasName("PK__Modifica__A3FE5A12EC0C9BEC");
@@ -318,19 +318,19 @@ namespace ISH_APP.Migrations
                 {
                     b.Property<int>("PaiementID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaiementID"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("PaiementID"));
 
                     b.Property<DateOnly?>("DatePaiement")
                         .HasColumnType("date");
 
                     b.Property<int?>("FactureID")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("ModePaiement")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.Property<decimal?>("Montant")
                         .HasColumnType("decimal(10, 2)");
@@ -340,7 +340,7 @@ namespace ISH_APP.Migrations
 
                     b.Property<string>("Recu")
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("character varying(200)");
 
                     b.HasKey("PaiementID")
                         .HasName("PK__Paiement__A8FB0857BBD247F1");
@@ -354,12 +354,12 @@ namespace ISH_APP.Migrations
                 {
                     b.Property<int>("PieceJointeID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PieceJointeID"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("PieceJointeID"));
 
                     b.Property<string>("CheminFichier")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<byte[]>("Contenu")
                         .HasColumnType("varbinary(max)");
@@ -367,18 +367,18 @@ namespace ISH_APP.Migrations
                     b.Property<DateTime?>("DateAjout")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
-                        .HasDefaultValueSql("(getdate())");
+                        .HasDefaultValueSql("(NOW())");
 
                     b.Property<int?>("DossierID")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("NomFichier")
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("TypeFichier")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.HasKey("PieceJointeID")
                         .HasName("PK__PieceJoi__27E19E15C63AFF3E");
@@ -392,46 +392,46 @@ namespace ISH_APP.Migrations
                 {
                     b.Property<int>("PrestataireID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PrestataireID"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("PrestataireID"));
 
                     b.Property<string>("AdresseSiege")
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("Agences")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("CodePostalSiege")
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("character varying(20)");
 
                     b.Property<string>("Contact")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Horaires")
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("Mail")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Nom")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<decimal?>("Note")
                         .HasColumnType("decimal(3, 2)");
 
                     b.Property<string>("Services")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("SiteWeb")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<decimal?>("TarifNormal")
                         .HasColumnType("decimal(10, 2)");
@@ -441,7 +441,7 @@ namespace ISH_APP.Migrations
 
                     b.Property<string>("VilleSiege")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("PrestataireID")
                         .HasName("PK__Prestata__0CB38DF24A9706F3");
@@ -453,36 +453,38 @@ namespace ISH_APP.Migrations
                 {
                     b.Property<int>("UtilisateurID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UtilisateurID"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("UtilisateurID"));
 
                     b.Property<string>("Email")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<byte[]>("Logo")
+                        .HasColumnType("bytea");
 
                     b.Property<string>("MotDePasseHash")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<string>("Nom")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Prenom")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Role")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.HasKey("UtilisateurID")
                         .HasName("PK__Utilisat__6CB6AE1FE8FEDB5B");
 
                     b.HasIndex(new[] { "Email" }, "UQ__Utilisat__A9D10534CA3CCA1E")
-                        .IsUnique()
-                        .HasFilter("[Email] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("Utilisateur");
                 });
@@ -563,6 +565,7 @@ namespace ISH_APP.Migrations
                     b.HasOne("ISH_APP.Models.Dossier", "Dossier")
                         .WithMany("HistoriqueModifications")
                         .HasForeignKey("DossierID")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .HasConstraintName("FK__Historiqu__Dossi__49C3F6B7");
 
                     b.Navigation("Dossier");

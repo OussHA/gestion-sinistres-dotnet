@@ -21,7 +21,7 @@ public partial class HistoriqueModification
 
     public string? NouvelleValeur { get; set; }
 
-    [Column(TypeName = "datetime")]
+    
     public DateTime? DateModification { get; set; }
 
     [StringLength(100)]

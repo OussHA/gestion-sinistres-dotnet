@@ -3,6 +3,38 @@
   "WorkspaceRootPath": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\migrations\\20260319132855_initialpostgres.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:migrations\\20260319132855_initialpostgres.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\models\\historiquemodification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:models\\historiquemodification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -43,10 +75,6 @@
       "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:pages\\dossierpages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\pages\\assurancepages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:pages\\assurancepages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
@@ -63,19 +91,116 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "20260319132855_InitialPostgres.cs",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Migrations\\20260319132855_InitialPostgres.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260319132855_InitialPostgres.cs",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Migrations\\20260319132855_InitialPostgres.cs",
+              "RelativeToolTip": "Migrations\\20260319132855_InitialPostgres.cs",
+              "ViewState": "AgIAAPMAAAAAAAAAAAAkwAYBAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T13:30:30.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "bootstrap-reboot.css.map",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+              "RelativeDocumentMoniker": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+              "RelativeToolTip": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAABetwAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-03-19T11:28:27.432Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "bootstrap-reboot.css",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+              "RelativeDocumentMoniker": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+              "RelativeToolTip": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+              "ViewState": "AgIAAP4BAAAAAAAAAAAuwBICAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-19T11:28:19.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "bootstrap-reboot.min.css",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+              "RelativeDocumentMoniker": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+              "RelativeToolTip": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAACuJAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-19T11:28:33.699Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HistoriqueModification.cs",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Models\\HistoriqueModification.cs",
+              "RelativeDocumentMoniker": "Models\\HistoriqueModification.cs",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Models\\HistoriqueModification.cs",
+              "RelativeToolTip": "Models\\HistoriqueModification.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T11:21:28.802Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAkwG8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T11:25:02.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Index.cshtml.cs",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\Index.cshtml.cs",
+              "RelativeToolTip": "Pages\\Index.cshtml.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAAAGEAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-09T14:17:19.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAADbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-19T11:12:50.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAABIAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T08:50:17.294Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-19T08:50:17.294Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "Facturation.cshtml",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Facturation.cshtml",
               "RelativeDocumentMoniker": "Pages\\DossierPages\\Facturation.cshtml",
@@ -87,7 +212,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "Assurance.cs",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Models\\Assurance.cs",
               "RelativeDocumentMoniker": "Models\\Assurance.cs",
@@ -99,7 +224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -111,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": ".getignore",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\.getignore",
               "RelativeDocumentMoniker": ".getignore",
@@ -123,7 +248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "Dockerfile",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Dockerfile",
               "RelativeDocumentMoniker": "Dockerfile",
@@ -135,7 +260,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 14,
               "Title": "Details.cshtml",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Details.cshtml",
               "RelativeDocumentMoniker": "Pages\\DossierPages\\Details.cshtml",
@@ -147,19 +272,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Index.cshtml.cs",
-              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\Index.cshtml.cs",
-              "RelativeToolTip": "Pages\\Index.cshtml.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAIAwwE4AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T14:17:19.425Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 17,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Index.cshtml",
               "RelativeDocumentMoniker": "Pages\\DossierPages\\Index.cshtml",
@@ -171,7 +284,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\ClientPages\\Index.cshtml",
               "RelativeDocumentMoniker": "Pages\\ClientPages\\Index.cshtml",
@@ -183,7 +296,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
               "Title": "Login.cshtml",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\AuthPages\\Login.cshtml",
               "RelativeDocumentMoniker": "Pages\\AuthPages\\Login.cshtml",
@@ -195,7 +308,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 18,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\AssurancePages\\Index.cshtml",
               "RelativeDocumentMoniker": "Pages\\AssurancePages\\Index.cshtml",

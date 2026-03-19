@@ -78,7 +78,7 @@ public partial class ApplicationDbContext : DbContext
         {
             entity.HasKey(e => e.HistoriqueID).HasName("PK__Historiq__0028F06DE7117746");
 
-            entity.Property(e => e.DateModification).HasDefaultValueSql("(getdate())");
+            entity.Property(e => e.DateModification).HasDefaultValueSql("(NOW())");
 
             entity.HasOne(d => d.Dossier)
                 .WithMany(p => p.HistoriqueModifications)
@@ -108,7 +108,7 @@ public partial class ApplicationDbContext : DbContext
         {
             entity.HasKey(e => e.PieceJointeID).HasName("PK__PieceJoi__27E19E15C63AFF3E");
 
-            entity.Property(e => e.DateAjout).HasDefaultValueSql("(getdate())");
+            entity.Property(e => e.DateAjout).HasDefaultValueSql("(NOW())");
 
             entity.HasOne(d => d.Dossier).WithMany(p => p.PieceJointes).HasConstraintName("FK__PieceJoin__Dossi__45F365D3");
         });
