@@ -3,6 +3,30 @@
   "WorkspaceRootPath": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\pages\\statistiques\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:pages\\statistiques\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\pages\\dossierpages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:pages\\dossierpages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\pages\\dossierpages\\facturation.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:pages\\dossierpages\\facturation.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\pages\\dossierpages\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:pages\\dossierpages\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\pages\\dossierpages\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:pages\\dossierpages\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|d:\\mesprojets\\ish\\ish_app\\ish_app\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DADAEF4D-495F-4461-8000-83417C8EC7C6}|ISH_APP.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -59,19 +83,97 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\Statistiques\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Statistiques\\Index.cshtml.cs",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\Statistiques\\Index.cshtml.cs",
+              "RelativeToolTip": "Pages\\Statistiques\\Index.cshtml.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAHIAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T17:07:06.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Index.cshtml.cs",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\Index.cshtml.cs",
+              "RelativeToolTip": "Pages\\Index.cshtml.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAAAGEAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T17:06:59.741Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\DossierPages\\Index.cshtml.cs",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Index.cshtml.cs",
+              "RelativeToolTip": "Pages\\DossierPages\\Index.cshtml.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAD8AAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T17:06:53.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Facturation.cshtml.cs",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Facturation.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\DossierPages\\Facturation.cshtml.cs",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Facturation.cshtml.cs",
+              "RelativeToolTip": "Pages\\DossierPages\\Facturation.cshtml.cs",
+              "ViewState": "AgIAACUBAAAAAAAAAADwvzoBAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T17:06:30.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Edit.cshtml.cs",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Edit.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\DossierPages\\Edit.cshtml.cs",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Edit.cshtml.cs",
+              "RelativeToolTip": "Pages\\DossierPages\\Edit.cshtml.cs",
+              "ViewState": "AgIAAL8AAAAAAAAAAAAAAMsAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T17:06:23.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Create.cshtml.cs",
+              "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Create.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\DossierPages\\Create.cshtml.cs",
+              "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Create.cshtml.cs",
+              "RelativeToolTip": "Pages\\DossierPages\\Create.cshtml.cs",
+              "ViewState": "AgIAAKsAAAAAAAAAAADwv70AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T17:06:00.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAC0AAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACIAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-19T08:50:17.294Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 11,
               "Title": "Facturation.cshtml",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Facturation.cshtml",
               "RelativeDocumentMoniker": "Pages\\DossierPages\\Facturation.cshtml",
@@ -83,7 +185,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "Assurance.cs",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Models\\Assurance.cs",
               "RelativeDocumentMoniker": "Models\\Assurance.cs",
@@ -95,7 +197,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -107,7 +209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": ".getignore",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\.getignore",
               "RelativeDocumentMoniker": ".getignore",
@@ -119,7 +221,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "Dockerfile",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Dockerfile",
               "RelativeDocumentMoniker": "Dockerfile",
@@ -131,7 +233,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "Details.cshtml",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Details.cshtml",
               "RelativeDocumentMoniker": "Pages\\DossierPages\\Details.cshtml",
@@ -143,7 +245,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 15,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\DossierPages\\Index.cshtml",
               "RelativeDocumentMoniker": "Pages\\DossierPages\\Index.cshtml",
@@ -155,7 +257,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 14,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\ClientPages\\Index.cshtml",
               "RelativeDocumentMoniker": "Pages\\ClientPages\\Index.cshtml",
@@ -167,7 +269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
               "Title": "Login.cshtml",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\AuthPages\\Login.cshtml",
               "RelativeDocumentMoniker": "Pages\\AuthPages\\Login.cshtml",
@@ -179,7 +281,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 16,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\MesProjets\\ISH\\ISH_APP\\ISH_APP\\Pages\\AssurancePages\\Index.cshtml",
               "RelativeDocumentMoniker": "Pages\\AssurancePages\\Index.cshtml",

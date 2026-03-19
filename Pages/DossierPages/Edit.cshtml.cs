@@ -201,7 +201,7 @@ namespace ISH_APP.Pages.DossierPages
                         ChampModifie = champ,
                         AncienneValeur = ancienne,
                         NouvelleValeur = nouvelle,
-                        DateModification = DateTime.Now,
+                        DateModification = DateTime.UtcNow,
                         ModifiePar = utilisateurNom
                     });
                 }

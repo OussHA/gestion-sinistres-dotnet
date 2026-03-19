@@ -121,7 +121,7 @@ namespace ISH_APP.Pages.DossierPages
                             NomFichier = Path.GetFileName(file.FileName),
                             TypeFichier = file.ContentType,
                             Contenu = memoryStream.ToArray(),
-                            DateAjout = DateTime.Now
+                            DateAjout = DateTime.UtcNow
                         };
 
                         _context.PieceJointes.Add(piece);
@@ -187,7 +187,7 @@ namespace ISH_APP.Pages.DossierPages
                 AncienneValeur = null,
                 NouvelleValeur = "Dossier créé",
                 ModifiePar = utilisateurNom,
-                DateModification = DateTime.Now
+                DateModification = DateTime.UtcNow
             };
 
             _context.HistoriqueModifications.Add(nouvelHistorique);

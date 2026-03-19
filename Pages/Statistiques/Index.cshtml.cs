@@ -112,7 +112,7 @@ namespace ISH_APP.Pages.Statistiques
                 .ToDictionaryAsync(g => g.NomComplet ?? "Sans utilisateur", g => g.Count);
 
             // Dossiers en retard par prestataire
-            var dateLimite = DateOnly.FromDateTime(DateTime.Now.AddDays(-15));
+            var dateLimite = DateOnly.FromDateTime(DateTime.UtcNow.AddDays(-15));
 
             DossiersEnRetardParPrestataire = await dossiersQuery
                 .Where(d =>

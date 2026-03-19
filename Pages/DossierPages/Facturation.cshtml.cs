@@ -191,7 +191,7 @@ namespace ISH_APP.Pages.DossierPages
                 doc.Add(new Paragraph("\n"));
 
                 // ✅ Info Devis
-                string devisNum = $"DEV-{DateTime.Now:yyyy-MMdd}-{Guid.NewGuid().ToString().Substring(0, 6).ToUpper()}";
+                string devisNum = $"DEV-{DateTime.UtcNow:yyyy-MMdd}-{Guid.NewGuid().ToString().Substring(0, 6).ToUpper()}";
                 PdfPTable infoTable = new PdfPTable(2);
                 infoTable.WidthPercentage = 100;
                 infoTable.SetWidths(new float[] { 70, 30 });
@@ -201,7 +201,7 @@ namespace ISH_APP.Pages.DossierPages
                 leftCell.AddElement(new Phrase("Valable 3 mois", normalFont));
                 leftCell.Border = 0;
 
-                PdfPCell rightCell = new PdfPCell(new Phrase($"Date : {DateTime.Now:dd/MM/yyyy}", normalFont));
+                PdfPCell rightCell = new PdfPCell(new Phrase($"Date : {DateTime.UtcNow:dd/MM/yyyy}", normalFont));
                 rightCell.HorizontalAlignment = Element.ALIGN_RIGHT;
                 rightCell.Border = 0;
 
@@ -309,10 +309,10 @@ namespace ISH_APP.Pages.DossierPages
             var pieceJointe = new PieceJointe
             {
                 DossierID = DossierID,
-                NomFichier = $"DEV_{DateTime.Now:yyyyMMddHHmmss}_{DossierID}.pdf",
+                NomFichier = $"DEV_{DateTime.UtcNow:yyyyMMddHHmmss}_{DossierID}.pdf",
                 TypeFichier = "application/pdf",
                 Contenu = pdfBytes,
-                DateAjout = DateTime.Now
+                DateAjout = DateTime.UtcNow
             };
 
             _context.PiecesJointes.Add(pieceJointe);

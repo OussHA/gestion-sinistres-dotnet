@@ -61,7 +61,7 @@ namespace ISH_APP.Pages.DossierPages
             {
                 if (EtatFiltre == "En retard")
                 {
-                    var dateLimite = DateOnly.FromDateTime(DateTime.Now.AddDays(-15));
+                    var dateLimite = DateOnly.FromDateTime(DateTime.UtcNow.AddDays(-15));
                     query = query.Where(d =>
                         d.Etat != "Validé" &&
                         d.DateDeclaration.HasValue &&

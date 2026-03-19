@@ -95,7 +95,7 @@ namespace ISH_APP.Pages
             Valide = _context.Dossiers.Count(d => d.UtilisateurID == utilisateurID && d.Etat == "Validé");
             ARefaire = DossiersUtilisateur.Count(d => d.Etat == "À refaire");
 
-            var dateLimite = DateOnly.FromDateTime(DateTime.Now.AddDays(-15));
+            var dateLimite = DateOnly.FromDateTime(DateTime.UtcNow.AddDays(-15));
 
             EnRetard = DossiersUtilisateur.Count(d =>
                 d.DateDeclaration.HasValue &&
