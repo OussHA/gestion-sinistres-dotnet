@@ -43,7 +43,7 @@ app.UseSession(); // activer la session
 // Pipeline HTTP
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error");
+    app.UseDeveloperExceptionPage();
     app.UseHsts();
 }
 
